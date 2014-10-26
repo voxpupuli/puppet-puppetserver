@@ -12,8 +12,18 @@ describe 'puppetserver' do
       apply_manifest(pp, :catch_changes => true)
     end
 
+    describe package('puppetserver') do
+      it { should be_installed }
+    end
+
+    describe service('puppetserver') do
+      it { should be_enabled }
+      it { should be_running }
+    end
+
     describe port(8140) do
-      it { is_expected.to be_listening }
+      pending 'Need to wait for puppetserver to start'
+      it { should be_listening.with('tcp') }
     end
   end
 end
