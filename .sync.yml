@@ -1,0 +1,8 @@
+---
+Gemfile:
+  optional:
+  - gem: serverspec
+  - gem: beaker
+  - gem: beaker-rspec
+  - gem: pry
+  - gem: simplecov
