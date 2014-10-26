@@ -22,8 +22,10 @@ describe 'puppetserver' do
     end
 
     describe port(8140) do
-      pending 'Need to wait for puppetserver to start'
-      it { should be_listening.with('tcp') }
+      it 'should listen on port 8140' do
+        pending 'Need to wait for puppetserver to start'
+        should be_listening
+      end
     end
   end
 end
