@@ -10,10 +10,18 @@ class puppetserver::repository {
       }
     }
     RedHat: {
-      yumrepo { 'puppetlabs':
+      yumrepo { 'puppetlabs-deps':
+        descr    => "Puppet Labs Dependencies El ${::operatingsystemmajrelease} - \$basearch",
+        baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/dependencies/\$basearch",
+        gpgcheck => '1',
+        gpgkey   => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
+        enabled  => '1',
+      }
+      yumrepo { 'puppetlabs-products':
         descr    => "Puppet Labs Products El ${::operatingsystemmajrelease} - \$basearch",
         baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/products/\$basearch",
-        gpgcheck => '0',
+        gpgcheck => '1',
+        gpgkey   => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
         enabled  => '1',
       }
     }
