@@ -23,7 +23,7 @@ describe 'puppetserver' do
 
     describe port(8140) do
       it 'should listen on port 8140' do
-        pending 'Need to wait for puppetserver to start'
+        sleep 60
         should be_listening
       end
     end
