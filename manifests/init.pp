@@ -3,8 +3,13 @@ class puppetserver(
   $enable  = true,
   $start   = true,
 
-  $java_xms = '2g',
-  $java_xmx = '2g',
+  $config = {
+    'java_args'     => {
+      'xms'         => '2g',
+      'xmx'         => '2g',
+      'maxpermsize' => '256m',
+    },
+  },
 ) {
   class { 'puppetserver::install': } ->
   class { 'puppetserver::config': } ~>
