@@ -1,4 +1,8 @@
 ---
+.travis.yml:
+  secure_global_env:
+    # PUBLISHER_PASSWORD
+    - "l2uNtqjFDAjJ5iUklkQuWbErS3QxF7YV6wtJOnRXATJsEF9RVF5wb+kujThpbb13i0ymvxPnDaqxv6RFUqn2tkYuR2nGO3J2Lx3N8uQbBnuO4Clnphf1Iin+pCQq25KQ/Xv4UbYZIbrvOV7ULSxcfVb3oNYVxdB/uSECEJ7LbKw="
 Gemfile:
   optional:
   - gem: serverspec
