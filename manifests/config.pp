@@ -1,13 +1,18 @@
 class puppetserver::config {
-  $target = $::osfamily ? {
-    Debian => '/etc/default/puppetserver',
-    RedHat => '/etc/sysconfig/puppetserver',
-  }
+  ::puppetserver::config::java_arg {
+    '-Xms':
+      ensure => 'present',
+      value  => $::puppetserver::java_xms,
+      ;
 
-  shellvar { 'JAVA_ARGS':
-    ensure   => present,
-    target   => $target,
-    variable => 'JAVA_ARGS',
-    value    => "-Xms${::puppetserver::java_xms} -Xmx${::puppetserver::java_xmx} -XX:MaxPermSize=256m"
+    '-Xmx':
+      ensure => 'present',
+      value  => $::puppetserver::java_xmx,
+      ;
+
+    '-XX:MaxPermSize=':
+      ensure => 'present',
+      value  => '256m',
+      ;
   }
 }
