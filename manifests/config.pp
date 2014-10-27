@@ -4,7 +4,7 @@ class puppetserver::config {
       ::puppetserver::config::java_arg {
         '-Xms':
           ensure => 'present',
-          value  => $::puppetserver::config['java_args']['Xms'],
+          value  => $::puppetserver::config['java_args']['xms'],
       }
     }
 
@@ -12,7 +12,7 @@ class puppetserver::config {
       ::puppetserver::config::java_arg {
         '-Xmx':
           ensure => 'present',
-          value  => $::puppetserver::config['java_args']['Xmx'],
+          value  => $::puppetserver::config['java_args']['xmx'],
       }
     }
 
@@ -20,7 +20,7 @@ class puppetserver::config {
       ::puppetserver::config::java_arg {
         '-XX:MaxPermSize=':
           ensure => 'present',
-          value  => $::puppetserver::config['java_args']['MaxPermsize'],
+          value  => $::puppetserver::config['java_args']['maxpermsize'],
       }
     }
   }
