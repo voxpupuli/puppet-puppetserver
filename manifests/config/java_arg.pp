@@ -5,7 +5,7 @@ define puppetserver::config::java_arg (
   case $ensure {
     'present': {
       $changes = [
-        'set JAVA_ARGS/quote "\""',
+        'set JAVA_ARGS/quote \'"\'',
         "set JAVA_ARGS/value[.=~regexp('${name}.*')] '${name}${value}'",
       ]
     }
