@@ -16,30 +16,30 @@ class { 'puppetserver': }
 
 ## Definitions
 
-### puppetserver::config::entry
+### puppetserver::config::puppetserver
 
-Sets up a configuration entry.
+A Puppetserver configuration entry.
 
-Examples:
+Example:
 
 ```puppet
-puppetserver::config::entry { 'Java Xms':
-  setting => '-Xms',
-  type    => 'java_arg',
-  value   => '4g',
-}
-
-puppetserver::config::entry { 'SSL port':
-  setting => 'webserver.conf/webserver/ssl-port',
-  type    => 'puppetserver',
+puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
   value   => '18140',
 }
 ```
 
-It currently supports 2 types:
+### puppetserver::config::java_arg
 
-* `java_arg`: A setting stored in the `JAVA_ARGS` variable. Values are managed individually (you don't need to provide all of them);
-* `puppetserver`: A setting in Puppetserver's conf.d.
+A setting stored in the `JAVA_ARGS` variable. Values are managed individually (you don't need to provide all of them);
+
+Example:
+
+```puppet
+puppetserver::config::java_arg { '-Xms':
+  value   => '4g',
+}
+```
+
  
 ## Contributing
 

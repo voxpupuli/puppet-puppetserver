@@ -8,11 +8,10 @@ define puppetserver::config::helper (
 
   if has_key($::puppetserver::config, $section) {
     if has_key($::puppetserver::config[$section], $key) {
-      ::puppetserver::config::entry { $title:
-        type    => $type,
-        setting => $setting,
-        value  => $::puppetserver::config[$section][$key],
-      }
+      ensure_resource("puppetserver::config::${type}", $setting, {
+          ensure => 'present',
+          value  => $::puppetserver::config[$section][$key],
+        })
     }
   }
 }
