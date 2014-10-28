@@ -1,40 +1,28 @@
 class puppetserver::config {
-  if has_key($::puppetserver::config, 'java_args') {
-    if has_key($::puppetserver::config['java_args'], 'xms') {
-      ::puppetserver::config::java_arg { '-Xms':
-        ensure => 'present',
-        value  => $::puppetserver::config['java_args']['xms'],
-      }
-    }
+  ::puppetserver::config::helper {
+    'java_args/xms':
+      setting => '-Xms',
+      type    => 'java_arg',
+      ;
 
-    if has_key($::puppetserver::config['java_args'], 'xmx') {
-      ::puppetserver::config::java_arg { '-Xmx':
-        ensure => 'present',
-        value  => $::puppetserver::config['java_args']['xmx'],
-      }
-    }
+    'java_args/xmx':
+      setting => '-Xmx',
+      type    => 'java_arg',
+      ;
 
-    if has_key($::puppetserver::config['java_args'], 'maxpermsize') {
-      ::puppetserver::config::java_arg { '-XX:MaxPermSize=':
-        ensure => 'present',
-        value  => $::puppetserver::config['java_args']['maxpermsize'],
-      }
-    }
-  }
+    'java_args/maxpermsize':
+      setting => '-XX:MaxPermSize=',
+      type    => 'java_arg',
+      ;
 
-  if has_key($puppetserver::config, 'webserver') {
-    if has_key($puppetserver::config['webserver'], 'port') {
-      ::puppetserver::config::puppetserver { 'webserver.conf/webserver/port':
-        ensure => 'present',
-        value  => $puppetserver::config['webserver']['port'],
-      }
-    }
+    'webserver/port':
+      setting => 'webserver.conf/webserver/port',
+      type    => 'puppetserver',
+      ;
 
-    if has_key($puppetserver::config['webserver'], 'ssl-port') {
-      ::puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
-        ensure => 'present',
-        value  => $puppetserver::config['webserver']['ssl-port'],
-      }
-    }
+    'webserver/ssl-port':
+      setting => 'webserver.conf/webserver/ssl-port',
+      type    => 'puppetserver',
+      ;
   }
 }
