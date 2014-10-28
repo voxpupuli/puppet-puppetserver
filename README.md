@@ -16,18 +16,6 @@ class { 'puppetserver': }
 
 ## Definitions
 
-### puppetserver::config::puppetserver
-
-A Puppetserver configuration entry.
-
-Example:
-
-```puppet
-puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
-  value   => '18140',
-}
-```
-
 ### puppetserver::config::java_arg
 
 A setting stored in the `JAVA_ARGS` variable. Values are managed individually (you don't need to provide all of them);
@@ -37,6 +25,18 @@ Example:
 ```puppet
 puppetserver::config::java_arg { '-Xms':
   value   => '4g',
+}
+```
+
+### puppetserver::config::puppetserver
+
+A Puppetserver configuration entry.
+
+Example:
+
+```puppet
+puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
+  value   => '18140',
 }
 ```
 
