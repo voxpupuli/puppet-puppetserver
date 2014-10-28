@@ -5,18 +5,18 @@ define puppetserver::config::puppetserver (
   require ::puppetserver::augeas
 
   $targetdir = '/etc/puppetserver/conf.d'
-  $target = "${targetdir}${file}"
+  $target = "/files${targetdir}${name}"
 
   case $ensure {
     'present': {
       $changes = [
-        "set /files${targetdir}/${name} '${value}'",
+        "set ${target} '${value}'",
       ]
     }
 
     'absent': {
       $changes = [
-        "rm /files${targetdir}/${name}",
+        "rm ${target}",
       ]
     }
 
