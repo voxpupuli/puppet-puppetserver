@@ -37,6 +37,39 @@ let sep = del /[ \t]*[:=]/ ":"
 let sep_with_spc = sep . Sep.opt_space
 
 (************************************************************************
+ * Group:       BLOCKS (FROM 1.2, FOR 0.10 COMPATIBILITY)
+ *************************************************************************)
+
+(* Variable: block_ldelim_newlines_re *)
+let block_ldelim_newlines_re = /[ \t\n]+\{([ \t\n]*\n)?/
+
+(* Variable: block_rdelim_newlines_re *)
+let block_rdelim_newlines_re = /[ \t]*\}/
+
+(* Variable: block_ldelim_newlines_default *)
+let block_ldelim_newlines_default = "\n{\n"
+
+(* Variable: block_rdelim_newlines_default *)
+let block_rdelim_newlines_default = "}"
+
+(************************************************************************
+ * View: block_newline
+ *   A block enclosed in brackets, with newlines forced
+ *   and indentation defaulting to a tab.
+ *
+ *   Parameters:
+ *     entry:lens - the entry to be stored inside the block.
+ *                  This entry should not include <Util.empty>,
+ *                  <Util.comment> or <Util.comment_noindent>,
+ *                  should be indented and finish with an eol.
+ ************************************************************************)
+let block_newlines (entry:lens) (comment:lens) =
+      let indent = del /[ \t]*/ "\t"
+   in del block_ldelim_newlines_re block_ldelim_newlines_default
+ . ((entry | comment) . (Util.empty | entry | comment)*)?
+ . del block_rdelim_newlines_re block_rdelim_newlines_default
+
+(************************************************************************
  * Group:                 ENTRY TYPES
  *************************************************************************)
 
@@ -48,7 +81,8 @@ let simple = [ Util.indent . key Rx.word
 let array =
      let lbrack = Util.del_str "["
   in let rbrack = Util.del_str "]"
-  in let comma = Util.delim ","
+  in let opt_space = del /[ \t]*/ ""
+  in let comma = opt_space . Util.del_str "," . opt_space
   in let elem = [ seq "elem" . store Rx.neg1 ]
   in let elems = counter "elem" . Build.opt_list elem comma
   in [ Util.indent . key Rx.word
@@ -58,7 +92,7 @@ let array =
 
 (* View: hash *)
 let hash (lns:lens) = [ Util.indent . key Rx.word . sep
-               . Build.block_newlines lns Util.comment
+               . block_newlines lns Util.comment
                . Util.eol ]
 
 
