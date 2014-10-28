@@ -2,6 +2,8 @@ define puppetserver::config::puppetserver (
   $value,
   $ensure = 'present',
 ) {
+  require ::puppetserver::augeas
+
   $targetdir = '/etc/puppetserver/conf.d'
   $target = "${targetdir}${file}"
 
