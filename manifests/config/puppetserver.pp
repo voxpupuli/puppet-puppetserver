@@ -5,7 +5,7 @@ define puppetserver::config::puppetserver (
   require ::puppetserver::augeas
 
   $targetdir = '/etc/puppetserver/conf.d'
-  $target = "/files${targetdir}${name}"
+  $target = "/files${targetdir}/${name}"
 
   case $ensure {
     'present': {
