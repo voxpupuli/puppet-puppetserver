@@ -16,7 +16,7 @@ class { 'puppetserver::repository': } ->
 class { 'puppetserver': }
 ```
 
-### Passing parameters
+### Tuning configuration parameters
 
 ```puppet
 class { 'puppetserver::repository': } ->
