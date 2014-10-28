@@ -112,3 +112,14 @@ test Trapperkeeper.lns get config =
      Should parse an empty file *)
 test Trapperkeeper.lns get "\n" = {}
 
+(* Test: Trapperkeeper.lns
+     Values can be quoted *)
+test Trapperkeeper.lns get "os-settings: {
+    ruby-load-paths: [\"/usr/lib/ruby/site_ruby/1.8\"]
+}\n" =
+  { "os-settings"
+    { "ruby-load-paths"
+      { "1" = "/usr/lib/ruby/site_ruby/1.8" }
+    }
+  }
+

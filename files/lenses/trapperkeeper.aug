@@ -73,9 +73,12 @@ let block_newlines (entry:lens) (comment:lens) =
  * Group:                 ENTRY TYPES
  *************************************************************************)
 
+     let opt_dquot = del /"?/ ""
+
 (* View: simple *)
-let simple = [ Util.indent . key Rx.word
-             . sep_with_spc . store /[^\[ \t\n]+/ . Util.eol ]
+let simple = [ Util.indent . key Rx.word . sep_with_spc
+             . opt_dquot . store /[^,"\[ \t\n]+/ . opt_dquot
+             . Util.eol ]
 
 (* View: array *)
 let array =
@@ -83,7 +86,7 @@ let array =
   in let rbrack = Util.del_str "]"
   in let opt_space = del /[ \t]*/ ""
   in let comma = opt_space . Util.del_str "," . opt_space
-  in let elem = [ seq "elem" . store Rx.neg1 ]
+  in let elem = [ seq "elem" . opt_dquot . store /[^,"\[ \t\n]+/ . opt_dquot ]
   in let elems = counter "elem" . Build.opt_list elem comma
   in [ Util.indent . key Rx.word
      . sep_with_spc . lbrack . Sep.opt_space
