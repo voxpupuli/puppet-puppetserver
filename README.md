@@ -9,10 +9,32 @@ The puppetserver module allows you to easily manage Puppetserver with Puppet.
 
 ## Usage
 
+### Simple usage
+
 ```puppet
 class { 'puppetserver::repository': } ->
 class { 'puppetserver': }
 ```
+
+### Passing parameters
+
+```puppet
+class { 'puppetserver::repository': } ->
+class { 'puppetserver':
+  config => {
+    'java_args'     => {
+      'xms'         => '4g',
+      'xmx'         => '6g',
+      'maxpermsize' => '512m',
+    },
+
+    'webserver'  => {
+      'ssl-port' => '18140',
+    },
+  },
+}
+```
+
 
 ## Definitions
 
