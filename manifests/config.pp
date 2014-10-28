@@ -24,9 +24,16 @@ class puppetserver::config {
 
   if has_key($puppetserver::config, 'webserver') {
     if has_key($puppetserver::config['webserver'], 'port') {
-      ::puppetserver::config::puppetserver { 'webserver.conf/port':
+      ::puppetserver::config::puppetserver { 'webserver.conf/webserver/port':
         ensure => 'present',
         value  => $puppetserver::config['webserver']['port'],
+      }
+    }
+
+    if has_key($puppetserver::config['webserver'], 'ssl-port') {
+      ::puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
+        ensure => 'present',
+        value  => $puppetserver::config['webserver']['ssl-port'],
       }
     }
   }
