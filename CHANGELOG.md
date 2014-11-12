@@ -1,3 +1,11 @@
+## 2014-11-12 Release 0.4.0
+### Summary
+
+- General
+
+  * Drop support for Puppet 2.7 in tests
+  * Use Travis DPL for releases
+
 ## 2014-10-28 Release 0.3.0
 ### Summary
 
