@@ -1,3 +1,15 @@
+## 2014-10-28 Release 0.3.0
+### Summary
+
+- Definitions
+
+  * Fix missing slash in puppetserver::conf::puppetserver
+
+- Augeas lens
+
+  * Support optional double quotes in values
+
+
 ## 2014-10-28 Release 0.2
 ### Summary
 
