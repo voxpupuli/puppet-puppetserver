@@ -1,6 +1,6 @@
 class puppetserver::repository {
   case $::osfamily {
-    Debian: {
+    'Debian': {
       include ::apt
       apt::source { 'puppetlabs':
         location   => 'http://apt.puppetlabs.com',
@@ -9,7 +9,7 @@ class puppetserver::repository {
         key_server => 'pgp.mit.edu',
       }
     }
-    RedHat: {
+    'RedHat': {
       yumrepo { 'puppetlabs-deps':
         descr    => "Puppet Labs Dependencies El ${::operatingsystemmajrelease} - \$basearch",
         baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/dependencies/\$basearch",
