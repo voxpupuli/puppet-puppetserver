@@ -2,29 +2,16 @@ require 'spec_helper'
 
 describe 'puppetserver' do
 
-  context 'on Debian' do
-    let(:facts) do
-      {
-        :osfamily => 'Debian',
-      }
-    end
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
 
-    context 'with defaults for all parameters' do
-      it { should compile.with_all_deps }
-      it { should contain_class('puppetserver') }
-    end
-  end
-
-  context 'on RedHat' do
-    let(:facts) do
-      {
-        :osfamily => 'RedHat',
-      }
-    end
-
-    context 'with defaults for all parameters' do
-      it { should compile.with_all_deps }
-      it { should contain_class('puppetserver') }
+      context 'with defaults for all parameters' do
+        it { should compile.with_all_deps }
+        it { should contain_class('puppetserver') }
+      end
     end
   end
 end
