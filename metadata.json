@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "author": "camptocamp",
   "summary": "Puppet module for puppetserver",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "source": "https://github.com/camptocamp/puppet-puppetserver",
   "project_page": "https://github.com/camptocamp/puppet-puppetserver",
   "issues_url": "https://github.com/camptocamp/puppet-puppetserver/issues",
