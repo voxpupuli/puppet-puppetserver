@@ -9,7 +9,6 @@ describe 'puppetserver' do
       EOS
 
       apply_manifest(pp, :catch_failures => true)
-      sleep 60
       apply_manifest(pp, :catch_changes => true)
     end
 
@@ -40,7 +39,6 @@ describe 'puppetserver' do
       EOS
 
       apply_manifest(pp, :catch_failures => true)
-      sleep 60
       apply_manifest(pp, :catch_changes => true)
     end
 
