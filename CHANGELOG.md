@@ -1,3 +1,7 @@
+## 2014-12-18 - Release 0.4.1
+
+Various improvements in unit tests
+
 ## 2014-11-12 Release 0.4.0
 ### Summary
 
