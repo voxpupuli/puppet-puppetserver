@@ -1,3 +1,7 @@
+## 2015-01-07 - Release 0.4.3
+
+Fix unquoted strings in cases
+
 ## 2015-01-06 - Release 0.4.2
 
 Fix .travis.yml
