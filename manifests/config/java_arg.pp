@@ -27,8 +27,8 @@ define puppetserver::config::java_arg (
   }
 
   $target = $::osfamily ? {
-    Debian => '/etc/default/puppetserver',
-    RedHat => '/etc/sysconfig/puppetserver',
+    'Debian' => '/etc/default/puppetserver',
+    'RedHat' => '/etc/sysconfig/puppetserver',
   }
 
   augeas { "Set puppetserver java_arg ${title}":
