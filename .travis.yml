@@ -13,6 +13,14 @@ matrix:
     env: PUPPET_GEM_VERSION="~> 3.0"
   - rvm: 2.0.0
     env: PUPPET_GEM_VERSION="~> 3.0"
+  - rvm: 2.0.0
+    env: BEAKER_set="centos-7-x86_64-openstack"
+    bundler_args: 
+    script: '[ -z "${OS_AUTH_URL}" -o -z "${OS_USERNAME}" -o -z "${OS_PASSWORD}" -o -z "${OS_TENANT_NAME}" ] || bundle exec rspec spec/acceptance'
+  - rvm: 2.0.0
+    env: BEAKER_set="debian-7-x86_64-openstack"
+    bundler_args: 
+    script: '[ -z "${OS_AUTH_URL}" -o -z "${OS_USERNAME}" -o -z "${OS_PASSWORD}" -o -z "${OS_TENANT_NAME}" ] || bundle exec rspec spec/acceptance'
   allow_failures:
     - rvm: 2.0.0
       env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
@@ -29,3 +37,9 @@ deploy:
     all_branches: true
     # Only publish if our main Ruby target builds
     rvm: 1.9.3
+env:
+  global:
+    - secure: MIw0kvfIT6Xk8eTmc45WknR5s8Z9CZAz2WqajHbPMAR/sh+rP+ZqcQccg8SbaXX7ophUmPTRJf7O+vP5OhHx72AVPP3xDcSpYfxk2ooNFkgnEJa5sOB4IjAypOl3V1lo2UbVx5C+PnEQA4lVyZESTwIz5nUgsLf27wfTECXFOHg=
+    - secure: Vy2m2qv7xwLvxJRBzNdAzVycjPq8KcF8WX/+IaonDtBLdR5Jx1FkJrjk9TpgmC6htWm4mw/SYCGBmSpqG995SXzQpv7+QXlhK+JX/gId0r16rSyxwTfIXIttyJmwobzgxgXyaevkhpWUeX+/uL73Wqv54p7tLvQGR8ILhtlZfKQ=
+    - secure: AFJtxKtspVlet0Zs6cqGKXD0f44PlPrdm4OGpol/CUqPbqPDGgwhLgiiCw4bxmifwAGYC/0Ss2cVfhDZub3wrL+C8I7gjo/0lQNlOwSlp9OkoBNNZHUzNmbf6hXgiIeBI7qx1xBzCN1No+TYerTUX0OheRU9c3yglCm9xIbsi7g=
+    - secure: FWWJibHeniUwgTTcX27/nijGI9pH4Yx71yx1sUxB+Mb8u1yUhhKNlhe4G4UT84USKP1fMeko/PHgyBcgjLEsb5fj2MJi8Zj9hsM5ovHxZvUHFmEr2Auo7CiEB/K/gMbpSQbkxOdWAWzbGezNI/6NmWHl6DyBlGimyzUxtP9IJ80=
