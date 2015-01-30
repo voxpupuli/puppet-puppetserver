@@ -52,8 +52,7 @@ describe 'puppetserver::config::java_arg' do
           context 'with no ensure' do
             it { should compile.with_all_deps }
             it {
-              should contain_augeas('Set puppetserver java_arg foo')
-                .with(
+              should contain_augeas('Set puppetserver java_arg foo').with(
               {
                 :lens    => 'Shellvars_list.lns',
                 :incl    => conffile,
@@ -73,8 +72,7 @@ describe 'puppetserver::config::java_arg' do
 
             it { should compile.with_all_deps }
             it {
-              should contain_augeas('Set puppetserver java_arg foo')
-                .with(
+              should contain_augeas('Set puppetserver java_arg foo').with(
               {
                 :lens    => 'Shellvars_list.lns',
                 :incl    => conffile,
