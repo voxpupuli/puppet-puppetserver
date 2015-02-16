@@ -1,3 +1,11 @@
+## 2015-02-16 - Release 0.5.0
+
+- Various rspec improvements
+- Use rspec-puppet-facts in specs
+- Various linting
+- Add anchors in puppetserver class
+- Add puppetserver_gem package provider
+
 ## 2015-01-07 - Release 0.4.3
 
 Fix unquoted strings in cases
