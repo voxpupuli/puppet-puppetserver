@@ -62,6 +62,20 @@ puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
 }
 ```
 
+## Providers
+
+### puppetserver_gem
+
+This plugin allows to manage gems in the Puppetserver.
+
+Example:
+
+```puppet
+gem { 'hiera-eyaml':
+  ensure   => present,
+  provider => puppetserver_gem,
+}
+```
  
 ## Contributing
 
