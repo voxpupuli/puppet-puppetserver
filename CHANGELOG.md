@@ -1,3 +1,7 @@
+## 2015-02-17 - Release 0.5.1
+
+- Properly confine the puppetserver_gem provider
+
 ## 2015-02-16 - Release 0.5.0
 
 - Various rspec improvements
