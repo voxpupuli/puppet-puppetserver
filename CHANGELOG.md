@@ -1,3 +1,7 @@
+## 2015-02-18 - Release 0.6.1
+
+- Fix specs for minimal memory size
+
 ## 2015-02-18 - Release 0.6.0
 
 - Do not check for minimal memory size
