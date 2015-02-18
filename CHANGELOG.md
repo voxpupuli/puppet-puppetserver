@@ -1,3 +1,8 @@
+## 2015-02-18 - Release 0.6.0
+
+- Do not check for minimal memory size
+- Fix puppet lint configuration in specs
+
 ## 2015-02-17 - Release 0.5.1
 
 - Properly confine the puppetserver_gem provider
