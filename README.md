@@ -35,6 +35,30 @@ class { 'puppetserver':
 }
 ```
 
+## Classes
+
+### puppetserver
+
+The main class to install a Puppet Server.
+
+### puppetserver::hiera::eyaml
+
+Install the necessary gems for hiera-eyaml inside the Puppet Server.
+
+Simple usage:
+
+```puppet
+include ::puppetserver::hiera::eyaml
+```
+
+Specify eyaml method:
+
+```puppet
+class { '::puppetserver::hiera::eyaml':
+  method => 'gpg',
+}
+```
+
 
 ## Definitions
 
