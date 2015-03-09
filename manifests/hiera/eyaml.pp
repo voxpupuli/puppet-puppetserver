@@ -17,7 +17,7 @@ class puppetserver::hiera::eyaml (
         install_options => '-v ">= 0.3.1"',
       } ->
       package { 'hiera-eyaml-gpg':
-        install_options => '-v ">= 0.5.rc1"',
+        install_options => '-v ">= 0.5.rc1" --pre',
       }
     }
 
