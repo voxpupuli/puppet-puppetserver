@@ -49,7 +49,7 @@ Simple usage:
 
 ```puppet
 class { '::puppetserver::hiera::eyaml':
-  require => Class['puppetserver'],
+  require => Class['puppetserver::install'],
 }
 ```
 
@@ -58,7 +58,7 @@ Specify eyaml method:
 ```puppet
 class { '::puppetserver::hiera::eyaml':
   method  => 'gpg',
-  require => Class['puppetserver'],
+  require => Class['puppetserver::install'],
 }
 ```
 
