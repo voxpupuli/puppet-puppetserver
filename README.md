@@ -48,14 +48,17 @@ Install the necessary gems for hiera-eyaml inside the Puppet Server.
 Simple usage:
 
 ```puppet
-include ::puppetserver::hiera::eyaml
+class { '::puppetserver::hiera::eyaml':
+  require => Class['puppetserver'],
+}
 ```
 
 Specify eyaml method:
 
 ```puppet
 class { '::puppetserver::hiera::eyaml':
-  method => 'gpg',
+  method  => 'gpg',
+  require => Class['puppetserver'],
 }
 ```
 
