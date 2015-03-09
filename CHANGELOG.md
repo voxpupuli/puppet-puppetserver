@@ -1,3 +1,8 @@
+## 2015-03-09 - Release 0.7.0
+
+- Add a puppetserver::hiera::eyaml class
+- Various specs improvements
+
 ## 2015-02-18 - Release 0.6.1
 
 - Fix specs for minimal memory size
