@@ -6,12 +6,12 @@ define puppetserver::config::bootstrap (
   case $ensure {
     'present': {
       $changes = "set ./01 '${name}'"
-      $onlyif = "match ./*[.='${name}'] size == 0"
+      $onlyif = "match ./*[label()!='#comment' and .='${name}'] size == 0"
     }
 
     'absent': {
-      $changes = "rm ./*[.='${name}']"
-      $onlyif = "match ./* include '${name}'"
+      $changes = "rm ./*[label()!='#comment' and .='${name}']"
+      $onlyif = "match ./*[label()!='#comment' and .='${name}'] size != 0"
     }
 
     default: {
