@@ -6,12 +6,12 @@ define puppetserver::config::bootstrap (
   case $ensure {
     'present': {
       $changes = "set ./01 '${name}'"
-      $unless = "match ./* include '${name}'"
+      $onlyif = "match ./*[.='${name}'] size == 0"
     }
 
     'absent': {
       $changes = "rm ./*[.='${name}']"
-      $unless = "match ./*[.='${name}'] size == 0"
+      $onlyif = "match ./* include '${name}'"
     }
 
     default: {
@@ -23,6 +23,6 @@ define puppetserver::config::bootstrap (
     lens    => 'Simplelines.lns',
     incl    => '/etc/puppetserver/bootstrap.cfg',
     changes => $changes,
-    unless  => $unless,
+    onlyif  => $onlyif,
   }
 }
