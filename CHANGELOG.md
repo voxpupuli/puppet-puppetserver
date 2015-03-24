@@ -1,3 +1,8 @@
+## 2015-03-24 - Release 0.8.0
+
+- Add puppetserver::config::boostrap to configure bootstrap.cfg
+- Fix /var/lib/puppet/ssl ownership
+
 ## 2015-03-09 - Release 0.7.0
 
 - Add a puppetserver::hiera::eyaml class
