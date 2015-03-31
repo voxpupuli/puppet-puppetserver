@@ -1,10 +1,3 @@
 ---
 .travis.yml:
-  acceptance:
-    - '*'
   forge_password: "QcG6iRpDC8ojkaCsrO3HVyBCspKcc2lkxRlBLG5X61Gp8dytr36tzndldMsxGW4CgTnCWNuRlJhfKwvH8ObSR8hDZyQkNwzoOSRMIUM9SGvHKqCScSMW1gjdNvh/0oMt/WbZEcyN7/XIEmQqtMmXShBaQ0yWYdp3TvgfNSJ/NdM="
-  globals:
-    - secure: "MIw0kvfIT6Xk8eTmc45WknR5s8Z9CZAz2WqajHbPMAR/sh+rP+ZqcQccg8SbaXX7ophUmPTRJf7O+vP5OhHx72AVPP3xDcSpYfxk2ooNFkgnEJa5sOB4IjAypOl3V1lo2UbVx5C+PnEQA4lVyZESTwIz5nUgsLf27wfTECXFOHg="
-    - secure: "Vy2m2qv7xwLvxJRBzNdAzVycjPq8KcF8WX/+IaonDtBLdR5Jx1FkJrjk9TpgmC6htWm4mw/SYCGBmSpqG995SXzQpv7+QXlhK+JX/gId0r16rSyxwTfIXIttyJmwobzgxgXyaevkhpWUeX+/uL73Wqv54p7tLvQGR8ILhtlZfKQ="
-    - secure: "AFJtxKtspVlet0Zs6cqGKXD0f44PlPrdm4OGpol/CUqPbqPDGgwhLgiiCw4bxmifwAGYC/0Ss2cVfhDZub3wrL+C8I7gjo/0lQNlOwSlp9OkoBNNZHUzNmbf6hXgiIeBI7qx1xBzCN1No+TYerTUX0OheRU9c3yglCm9xIbsi7g="
-    - secure: "FWWJibHeniUwgTTcX27/nijGI9pH4Yx71yx1sUxB+Mb8u1yUhhKNlhe4G4UT84USKP1fMeko/PHgyBcgjLEsb5fj2MJi8Zj9hsM5ovHxZvUHFmEr2Auo7CiEB/K/gMbpSQbkxOdWAWzbGezNI/6NmWHl6DyBlGimyzUxtP9IJ80="
