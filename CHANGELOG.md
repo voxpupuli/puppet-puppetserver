@@ -1,3 +1,14 @@
+## 2015-04-03 - Release 0.9.0
+
+- Remove acceptance tests from travis (puppetserver requires too much memory to
+  start)
+- Use lens_content and test_content instead of lens_source and test_source for
+  augeas::lens resources
+- Don't manage /var/lib/puppet/ssl (fixed upstream)
+- Remove RedHat 5 support (it may still work though)
+- Confine rspec pinning to ruby 1.8
+- Simplify spec/spec_helper_acceptance.rb
+
 ## 2015-03-24 - Release 0.8.0
 
 - Add puppetserver::config::boostrap to configure bootstrap.cfg
