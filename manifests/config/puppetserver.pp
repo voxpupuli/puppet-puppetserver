@@ -4,7 +4,11 @@ define puppetserver::config::puppetserver (
 ) {
   require ::puppetserver::augeas
 
-  $targetdir = '/etc/puppetserver/conf.d'
+  if versioncmp($::puppetversion, '4.0.0') >= 0 {
+    $targetdir = '/etc/puppetlabs/puppetserver/conf.d'
+  } else {
+    $targetdir = '/etc/puppetserver/conf.d'
+  }
   $target = "/files${targetdir}/${name}"
 
   case $ensure {
