@@ -2,7 +2,7 @@ class puppetserver(
   $version = 'present',
   $enable  = true,
   $start   = true,
-
+  $package = 'puppetserver',
   $config = {},
 ) {
   anchor { 'puppetserver::begin': } ->
