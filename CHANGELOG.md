@@ -1,3 +1,7 @@
+## 2015-06-23 - Release 0.10.
+
+Support custom package name
+
 ## 2015-05-28 - Release 0.9.7
 
 Add beaker_spec_helper to Gemfile
