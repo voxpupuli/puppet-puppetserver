@@ -24,5 +24,10 @@ class puppetserver::config {
       setting => 'webserver.conf/webserver/ssl-port',
       type    => 'puppetserver',
       ;
+
+    'puppetserver/admin-api-cert':
+      setting => 'puppetserver.conf/puppet-admin/client-whitelist/1',
+      type    => 'puppetserver',
+      ;
   }
 }
