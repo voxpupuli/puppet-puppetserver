@@ -1,4 +1,8 @@
-## 2015-06-23 - Release 0.10.
+## 2015-06-25 - Release 0.11.0
+
+Add puppetserver/admin-api-cert config parameter
+
+## 2015-06-23 - Release 0.10.0
 
 Support custom package name
 
