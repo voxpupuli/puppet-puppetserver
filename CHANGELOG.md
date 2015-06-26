@@ -1,3 +1,7 @@
+## 2015-06-26 - Release 0.11.1
+
+Fix strict_variables activation with rspec-puppet 2.2
+
 ## 2015-06-25 - Release 0.11.0
 
 Add puppetserver/admin-api-cert config parameter
