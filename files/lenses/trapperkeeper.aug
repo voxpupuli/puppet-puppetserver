@@ -117,7 +117,8 @@ let rec entry = hash (entry|simple|array)
 let lns = (empty|comment)* . (entry . (empty|comment)*)*
 
 (* Variable: filter *)
-let filter = incl "/etc/puppetserver/conf.d/*" . incl "/etc/puppetlabs/puppetserver/conf.d/*"
+let filter = incl "/etc/puppetserver/conf.d/*"
+           . incl "/etc/puppetlabs/puppetserver/conf.d/*"
            . Util.stdexcl
 
 let xfm = transform lns filter
