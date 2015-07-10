@@ -19,9 +19,15 @@ define puppetserver::config::bootstrap (
     }
   }
 
+  if versioncmp($::puppetversion, '4.0.0') >= 0 {
+    $targetfile = '/etc/puppetlabs/puppetserver/bootstrap.cfg'
+  } else {
+    $targetfile = '/etc/puppetserver/bootstrap.cfg'
+  }
+
   augeas { "Set puppetserver bootstrap ${title}":
     lens    => 'Simplelines.lns',
-    incl    => '/etc/puppetserver/bootstrap.cfg',
+    incl    => "${targetfile}",
     changes => $changes,
     onlyif  => $onlyif,
   }
