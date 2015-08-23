@@ -2,7 +2,11 @@ require 'beaker-rspec'
 
 hosts.each do |host|
   # Install Puppet
-  install_puppet()
+  if ENV['PUPPET_AIO']
+    install_puppet_agent_on host, {}
+  else
+    install_puppet_on host
+  end
 end
 
 RSpec.configure do |c|
