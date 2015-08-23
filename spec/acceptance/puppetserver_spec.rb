@@ -18,7 +18,7 @@ describe 'puppetserver' do
 
     describe service('puppetserver') do
       it do
-        pending 'Fails on Debian8 (packaging issue?)' if fact('operatingsystem') == 'Debian'
+        pending 'Fails on Debian8 (packaging issue?)' if fact('operatingsystem') == 'Debian' and fact('lsbdistcodename') == 'jessie'
         should be_enabled
       end
       it { should be_running }
