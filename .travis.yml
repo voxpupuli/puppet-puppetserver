@@ -26,31 +26,13 @@ matrix:
   - rvm: default
     sudo: required
     services: docker
-    env: BEAKER_set="debian-7-x86_64-docker" PUPPET_AIO="yes"
-    bundler_args:
-    script: bundle exec rspec spec/acceptance/*_spec.rb
-  - rvm: default
-    sudo: required
-    services: docker
     env: BEAKER_set="centos-6-x86_64-docker"
     bundler_args:
     script: bundle exec rspec spec/acceptance/*_spec.rb
   - rvm: default
     sudo: required
     services: docker
-    env: BEAKER_set="centos-6-x86_64-docker" PUPPET_AIO="yes"
-    bundler_args:
-    script: bundle exec rspec spec/acceptance/*_spec.rb
-  - rvm: default
-    sudo: required
-    services: docker
     env: BEAKER_set="centos-7-x86_64-docker"
-    bundler_args:
-    script: bundle exec rspec spec/acceptance/*_spec.rb
-  - rvm: default
-    sudo: required
-    services: docker
-    env: BEAKER_set="centos-7-x86_64-docker" PUPPET_AIO="yes"
     bundler_args:
     script: bundle exec rspec spec/acceptance/*_spec.rb
 notifications:
