@@ -3,3 +3,22 @@
   acceptance:
     - '*'
   forge_password: "QcG6iRpDC8ojkaCsrO3HVyBCspKcc2lkxRlBLG5X61Gp8dytr36tzndldMsxGW4CgTnCWNuRlJhfKwvH8ObSR8hDZyQkNwzoOSRMIUM9SGvHKqCScSMW1gjdNvh/0oMt/WbZEcyN7/XIEmQqtMmXShBaQ0yWYdp3TvgfNSJ/NdM="
+  extras:
+    - rvm: default
+      sudo: required
+      services: docker
+      env: BEAKER_set="debian-7-x86_64-docker" PUPPET_AIO="yes"
+      bundler_args:
+      script: bundle exec rspec spec/acceptance/*_spec.rb
+    - rvm: default
+      sudo: required
+      services: docker
+      env: BEAKER_set="centos-6-x86_64-docker" PUPPET_AIO="yes"
+      bundler_args:
+      script: bundle exec rspec spec/acceptance/*_spec.rb
+    - rvm: default
+      sudo: required
+      services: docker
+      env: BEAKER_set="centos-7-x86_64-docker" PUPPET_AIO="yes"
+      bundler_args:
+      script: bundle exec rspec spec/acceptance/*_spec.rb
