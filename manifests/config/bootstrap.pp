@@ -27,7 +27,7 @@ define puppetserver::config::bootstrap (
 
   augeas { "Set puppetserver bootstrap ${title}":
     lens    => 'Simplelines.lns',
-    incl    => "${targetfile}",
+    incl    => $targetfile,
     changes => $changes,
     onlyif  => $onlyif,
   }
