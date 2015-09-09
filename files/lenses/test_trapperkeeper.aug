@@ -131,9 +131,11 @@ test Trapperkeeper.lns get "test: {
   { "@hash" = "test"
     { "@simple" = "x" { "@value" = "true" } } }
 
-(*
-test Trapperkeeper.lns get "test: {
-  \"x\" : z
-  \"x/y\" : z
-}\n" = ?
+(* Test: Trapperkeeper.lns
+     Keys can contain / (GH #7)
 *)
+test Trapperkeeper.lns get "test: {
+  \"x/y\" : z
+}\n" =
+  { "@hash" = "test"
+    { "@simple" = "x/y" { "@value" = "z" } } }
