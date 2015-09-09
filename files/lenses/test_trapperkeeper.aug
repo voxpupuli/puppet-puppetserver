@@ -57,30 +57,30 @@ os-settings: {
 test Trapperkeeper.lns get config =
   {  }
   { "#comment" = "This is a comment" }
-  { "webserver"
-    { "bar"
+  { "@hash" = "webserver"
+    { "@hash" = "bar"
       { "#comment" = "A comment" }
-      { "host" = "localhost" }
-      { "port" = "9000" }
-      { "default-server" = "true" }
+      { "@simple" = "host" { "@value" = "localhost" } }
+      { "@simple" = "port" { "@value" = "9000" } }
+      { "@simple" = "default-server" { "@value" = "true" } }
     }
     {  }
-    { "foo"
-      { "host" = "localhost" }
-      { "port" = "10000" }
+    { "@hash" = "foo"
+      { "@simple" = "host" { "@value" = "localhost" } }
+      { "@simple" = "port" { "@value" = "10000" } }
     }
   }
   {  }
-  { "jruby-puppet"
+  { "@hash" = "jruby-puppet"
     { "#comment" = "This setting determines where JRuby will look for gems.  It is also" }
     { "#comment" = "used by the `puppetserver gem` command line tool." }
-    { "gem-home" = "/var/lib/puppet/jruby-gems" }
+    { "@simple" = "gem-home" { "@value" = "/var/lib/puppet/jruby-gems" } }
     {  }
     { "#comment" = "(optional) path to puppet conf dir; if not specified, will use the puppet default" }
-    { "master-conf-dir" = "/etc/puppet" }
+    { "@simple" = "master-conf-dir" { "@value" = "/etc/puppet" } }
     {  }
     { "#comment" = "(optional) path to puppet var dir; if not specified, will use the puppet default" }
-    { "master-var-dir" = "/var/lib/puppet" }
+    { "@simple" = "master-var-dir" { "@value" = "/var/lib/puppet" } }
     {  }
     { "#comment" = "(optional) maximum number of JRuby instances to allow; defaults to <num-cpus>+2" }
     { "#comment" = "max-active-instances: 1" }
@@ -88,19 +88,19 @@ test Trapperkeeper.lns get config =
   {  }
   {  }
   { "#comment" = "CA-related settings" }
-  { "certificate-authority"
+  { "@hash" = "certificate-authority"
     { "#comment" = "settings for the certificate_status HTTP endpoint" }
-    { "certificate-status"
+    { "@hash" = "certificate-status"
       { "#comment" = "this setting contains a list of client certnames who are whitelisted to" }
       { "#comment" = "have access to the certificate_status endpoint.  Any requests made to" }
       { "#comment" = "this endpoint that do not present a valid client cert mentioned in" }
       { "#comment" = "this list will be denied access." }
-      { "client-whitelist" }
+      { "@array" = "client-whitelist" }
     }
   }
   {  }
-  { "os-settings"
-    { "ruby-load-path"
+  { "@hash" = "os-settings"
+    { "@array" = "ruby-load-path"
       { "1" = "/usr/lib/ruby/vendor_ruby" }
       { "2" = "/home/foo/ruby" }
     }
@@ -117,8 +117,8 @@ test Trapperkeeper.lns get "\n" = {}
 test Trapperkeeper.lns get "os-settings: {
     ruby-load-paths: [\"/usr/lib/ruby/site_ruby/1.8\"]
 }\n" =
-  { "os-settings"
-    { "ruby-load-paths"
+  { "@hash" = "os-settings"
+    { "@array" = "ruby-load-paths"
       { "1" = "/usr/lib/ruby/site_ruby/1.8" }
     }
   }
@@ -128,5 +128,12 @@ test Trapperkeeper.lns get "os-settings: {
 test Trapperkeeper.lns get "test: {
   \"x\": true
 }\n" =
-  { "test"
-    { "x" = "true" } }
+  { "@hash" = "test"
+    { "@simple" = "x" { "@value" = "true" } } }
+
+(*
+test Trapperkeeper.lns get "test: {
+  \"x\" : z
+  \"x/y\" : z
+}\n" = ?
+*)

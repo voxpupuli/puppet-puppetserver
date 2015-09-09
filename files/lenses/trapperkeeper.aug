@@ -73,11 +73,11 @@ let block_newlines (entry:lens) (comment:lens) =
  * Group:                 ENTRY TYPES
  *************************************************************************)
 
-     let opt_dquot = del /"?/ ""
+let opt_dquot (lns:lens) = del /"?/ "" . lns . del /"?/ ""
 
 (* View: simple *)
-let simple = [ Util.indent . opt_dquot . key Rx.word . opt_dquot . sep_with_spc
-             . opt_dquot . store /[^,"\[ \t\n]+/ . opt_dquot
+let simple = [ Util.indent . label "@simple" . opt_dquot (store Rx.word) . sep_with_spc
+             . [ label "@value" . opt_dquot (store /[^,"\[ \t\n]+/) ]
              . Util.eol ]
 
 (* View: array *)
@@ -86,15 +86,15 @@ let array =
   in let rbrack = Util.del_str "]"
   in let opt_space = del /[ \t]*/ ""
   in let comma = opt_space . Util.del_str "," . opt_space
-  in let elem = [ seq "elem" . opt_dquot . store /[^,"\[ \t\n]+/ . opt_dquot ]
+  in let elem = [ seq "elem" . opt_dquot (store /[^,"\[ \t\n]+/) ]
   in let elems = counter "elem" . Build.opt_list elem comma
-  in [ Util.indent . key Rx.word
+  in [ Util.indent . label "@array" . store Rx.word
      . sep_with_spc . lbrack . Sep.opt_space
      . (elems . Sep.opt_space)?
      . rbrack . Util.eol ]
 
 (* View: hash *)
-let hash (lns:lens) = [ Util.indent . key Rx.word . sep
+let hash (lns:lens) = [ Util.indent . label "@hash" . store Rx.word . sep
                . block_newlines lns Util.comment
                . Util.eol ]
 

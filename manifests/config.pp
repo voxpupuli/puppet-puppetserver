@@ -16,17 +16,17 @@ class puppetserver::config {
       ;
 
     'webserver/port':
-      setting => 'webserver.conf/webserver/port',
+      setting => 'webserver.conf/@hash[.="webserver"]/@simple[.="port"]',
       type    => 'puppetserver',
       ;
 
     'webserver/ssl-port':
-      setting => 'webserver.conf/webserver/ssl-port',
+      setting => 'webserver.conf/@hash[.="webserver"]/@simple[.="ssl-port"]',
       type    => 'puppetserver',
       ;
 
     'puppetserver/admin-api-cert':
-      setting => 'puppetserver.conf/puppet-admin/client-whitelist/1',
+      setting => 'puppetserver.conf/@hash[.="puppet-admin"]/@array[.="client-whitelist"]/1',
       type    => 'puppetserver',
       ;
   }
