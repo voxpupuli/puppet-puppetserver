@@ -123,3 +123,10 @@ test Trapperkeeper.lns get "os-settings: {
     }
   }
 
+(* Test: Trapperkeeper.lns
+     Keys can be quoted *)
+test Trapperkeeper.lns get "test: {
+  \"x\": true
+}\n" =
+  { "test"
+    { "x" = "true" } }

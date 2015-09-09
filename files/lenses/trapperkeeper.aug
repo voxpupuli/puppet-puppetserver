@@ -76,7 +76,7 @@ let block_newlines (entry:lens) (comment:lens) =
      let opt_dquot = del /"?/ ""
 
 (* View: simple *)
-let simple = [ Util.indent . key Rx.word . sep_with_spc
+let simple = [ Util.indent . opt_dquot . key Rx.word . opt_dquot . sep_with_spc
              . opt_dquot . store /[^,"\[ \t\n]+/ . opt_dquot
              . Util.eol ]
 
