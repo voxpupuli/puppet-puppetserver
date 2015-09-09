@@ -14,7 +14,7 @@ define puppetserver::config::puppetserver (
   case $ensure {
     'present': {
       $changes = [
-        "set ${target} '${value}'",
+        "set ${target}/@value '${value}'",
       ]
     }
 
