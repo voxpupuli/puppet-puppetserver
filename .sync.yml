@@ -22,9 +22,5 @@
       env: BEAKER_set="centos-7-x86_64-docker" PUPPET_AIO="yes"
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
-Gemfile:
-  optional:
-    ':development, :unit_tests':
-      - gem: ruby-augeas
 spec/spec_helper.rb:
   augeasproviders: true

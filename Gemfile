@@ -24,7 +24,6 @@ group :development, :unit_tests do
   gem 'ruby-augeas',                                       :require => false
   gem 'github_changelog_generator',                        :require => false if RUBY_VERSION !~ /^1.8/
   gem 'puppet-blacksmith',                                 :require => false if RUBY_VERSION !~ /^1.8/
-  gem 'ruby-augeas',                                       :require => false
 end
 
 group :system_tests do
