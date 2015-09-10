@@ -9,6 +9,10 @@
   "issues_url": "https://github.com/camptocamp/puppet-puppetserver/issues",
   "dependencies": [
     {
+      "name": "herculesteam/augeasproviders_core",
+      "version_requirement": "2.x"
+    },
+    {
       "name": "puppetlabs/apt",
       "version_requirement": ">=1.0.0 <2.0.0"
     },
