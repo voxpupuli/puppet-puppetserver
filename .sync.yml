@@ -2,6 +2,14 @@
 .travis.yml:
   acceptance:
     - '*'
+  use_containers: false
+  install: 
+    - "travis_retry ./.travis.sh"
+  script:
+    - bundle exec rake validate
+    - bundle exec rake lint
+    - AUGEAS_LENS_LIB=lib/augeas/lenses bundle exec rake spec SPEC_OPTS='--format documentation'
+    - bundle exec rake metadata
   forge_password: "QcG6iRpDC8ojkaCsrO3HVyBCspKcc2lkxRlBLG5X61Gp8dytr36tzndldMsxGW4CgTnCWNuRlJhfKwvH8ObSR8hDZyQkNwzoOSRMIUM9SGvHKqCScSMW1gjdNvh/0oMt/WbZEcyN7/XIEmQqtMmXShBaQ0yWYdp3TvgfNSJ/NdM="
   extras:
     - rvm: default
