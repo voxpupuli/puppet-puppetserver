@@ -1,35 +1,18 @@
 define puppetserver::config::puppetserver (
   $value,
   $ensure = 'present',
+  $setting_type = undef,
 ) {
   if versioncmp($::puppetversion, '4.0.0') >= 0 {
     $targetdir = '/etc/puppetlabs/puppetserver/conf.d'
   } else {
     $targetdir = '/etc/puppetserver/conf.d'
   }
-  $target = "/files${targetdir}/${name}"
+  $title = "${targetdir}/${title}"
 
-  case $ensure {
-    'present': {
-      $changes = [
-        "set ${target}/@value '${value}'",
-      ]
-    }
-
-    'absent': {
-      $changes = [
-        "rm ${target}",
-      ]
-    }
-
-    default: {
-      fail 'Wrong value for "ensure".'
-    }
-  }
-
-  augeas { "Set puppetserver config ${title}":
-    lens    => 'Trapperkeeper.lns',
-    incl    => "${targetdir}/*",
-    changes => $changes,
+  puppetserver_config { $title:
+    ensure => $ensure,
+    value  => $value,
+    type   => $setting_type,
   }
 }

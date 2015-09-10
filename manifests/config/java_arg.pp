@@ -1,6 +1,7 @@
 define puppetserver::config::java_arg (
   $value,
   $ensure = 'present',
+  $setting_type = undef, # For helper
 ) {
   Class['puppetserver::install'] ->
   Puppetserver::Config::Java_arg[$title] ~>
