@@ -2,6 +2,11 @@ require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-facts'
 include RspecPuppetFacts
 
+# Setup augeasproviders
+require 'pathname'
+dir = Pathname.new(__FILE__).parent
+$LOAD_PATH.unshift(dir, File.join(dir, 'fixtures/modules/augeasproviders_core/spec/lib'), File.join(dir, '..', 'lib'))
+require 'augeas_spec'
 
 RSpec.configure do |c|
   c.include PuppetlabsSpec::Files
