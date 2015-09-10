@@ -8,9 +8,9 @@ define puppetserver::config::puppetserver (
   } else {
     $targetdir = '/etc/puppetserver/conf.d'
   }
-  $title = "${targetdir}/${title}"
+  $key = "${targetdir}/${title}"
 
-  puppetserver_config { $title:
+  puppetserver_config { $key:
     ensure => $ensure,
     value  => $value,
     type   => $setting_type,
