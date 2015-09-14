@@ -3,6 +3,8 @@ define puppetserver::config::puppetserver (
   $ensure = 'present',
   $setting_type = undef,
 ) {
+  require ::puppetserver::augeas
+
   if versioncmp($::puppetversion, '4.0.0') >= 0 {
     $targetdir = '/etc/puppetlabs/puppetserver/conf.d'
   } else {
