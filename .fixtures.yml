@@ -1,7 +1,8 @@
 fixtures:
   forge_modules:
     apt: 'puppetlabs-apt'
-    stdlib: 'puppetlabs-stdlib'
+    augeas: 'camptocamp-augeas'
     augeasproviders_core: 'herculesteam-augeasproviders_core'
+    stdlib: 'puppetlabs-stdlib'
   symlinks:
     puppetserver: "#{source_dir}"
