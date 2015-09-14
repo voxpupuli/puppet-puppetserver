@@ -1,3 +1,14 @@
+## 2015-09-14 - Release 2.0.0
+
+- Add puppetserver_config type & provider
+  and use it in manifests
+- Depend on augeasproviders_core
+- Add acceptance tests on Travis CI (GH #13)
+- Rework the Trapperkeeper Augeas lens
+  to support more syntax (GH # (breaking change)
+- Add linting plugins
+- Add support for Puppetserver 2 paths (GH #8)
+
 ## 2015-07-09 - Release 1.0.0
 
 Add puppetserver2 support
