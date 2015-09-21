@@ -1,3 +1,8 @@
+## 2015-09-21 - Release 2.0.1
+
+- Cleanup unused code in Trapperkeeper lens
+- Fix puppetlabs-apt dependency
+
 ## 2015-09-14 - Release 2.0.0
 
 - Add puppetserver_config type & provider
