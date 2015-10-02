@@ -1,4 +1,8 @@
-class puppetserver::repository {
+class puppetserver::repository (
+  $use_collections     = false,
+  $collections_version = 1,
+)
+{
   case $::osfamily {
     'Debian': {
       include ::apt
@@ -10,19 +14,29 @@ class puppetserver::repository {
       }
     }
     'RedHat': {
-      yumrepo { 'puppetlabs-deps':
-        descr    => "Puppet Labs Dependencies El ${::operatingsystemmajrelease} - \$basearch",
-        baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/dependencies/\$basearch",
-        gpgcheck => '1',
-        gpgkey   => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
-        enabled  => '1',
-      }
-      yumrepo { 'puppetlabs-products':
-        descr    => "Puppet Labs Products El ${::operatingsystemmajrelease} - \$basearch",
-        baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/products/\$basearch",
-        gpgcheck => '1',
-        gpgkey   => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
-        enabled  => '1',
+      if $use_collections {
+        yumrepo { "puppetlabs-PC1":
+            descr    => "Puppet Labs Collections El ${::operatingsystemmajrelease} - \$basearch",
+            baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/PC${collections_version}/\$basearch",
+            gpgcheck => '1',
+            gpgkey   => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
+            enabled  => '1',
+        }
+      } else {
+        yumrepo { 'puppetlabs-deps':
+          descr    => "Puppet Labs Dependencies El ${::operatingsystemmajrelease} - \$basearch",
+          baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/dependencies/\$basearch",
+          gpgcheck => '1',
+          gpgkey   => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
+          enabled  => '1',
+        }
+        yumrepo { 'puppetlabs-products':
+          descr    => "Puppet Labs Products El ${::operatingsystemmajrelease} - \$basearch",
+          baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/products/\$basearch",
+          gpgcheck => '1',
+          gpgkey   => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
+          enabled  => '1',
+        }
       }
     }
     default: {
