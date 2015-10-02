@@ -15,7 +15,7 @@ class puppetserver::repository (
     }
     'RedHat': {
       if $use_collections {
-        yumrepo { "puppetlabs-PC1":
+        yumrepo { 'puppetlabs-PC1':
             descr    => "Puppet Labs Collections El ${::operatingsystemmajrelease} - \$basearch",
             baseurl  => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/PC${collections_version}/\$basearch",
             gpgcheck => '1',
