@@ -1,7 +1,11 @@
 # Puppetserver
 
-[![Puppet Forge](http://img.shields.io/puppetforge/v/camptocamp/puppetserver.svg)](https://forge.puppetlabs.com/camptocamp/puppetserver)
-[![Build Status](https://travis-ci.org/camptocamp/puppet-puppetserver.png?branch=master)](https://travis-ci.org/camptocamp/puppet-puppetserver)
+[![Puppet Forge Version](http://img.shields.io/puppetforge/v/camptocamp/puppetserver.svg)](https://forge.puppetlabs.com/camptocamp/puppetserver)
+[![Puppet Forge Downloads](http://img.shields.io/puppetforge/dt/camptocamp/puppetserver.svg)](https://forge.puppetlabs.com/camptocamp/puppetserver)
+[![Build Status](https://img.shields.io/travis/camptocamp/puppet-puppetserver/master.svg)](https://travis-ci.org/camptocamp/puppet-puppetserver)
+[![Puppet Forge Endorsement](https://img.shields.io/puppetforge/e/camptocamp/puppetserver.svg)](https://forge.puppetlabs.com/camptocamp/puppetserver)
+[![Gemnasium](https://img.shields.io/gemnasium/camptocamp/puppet-puppetserver.svg)](https://gemnasium.com/camptocamp/puppet-puppetserver)
+[![By Camptocamp](https://img.shields.io/badge/by-camptocamp-fb7047.svg)](http://www.camptocamp.com)
 
 ## Overview
 
