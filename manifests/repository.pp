@@ -1,8 +1,26 @@
 class puppetserver::repository (
-  $yum_proxy          = undef,
-  $yum_proxy_username = undef,
-  $yum_proxy_password = undef,
+  $yum_proxy            = undef,
+  $yum_proxy_username   = undef,
+  $yum_proxy_password   = undef,
+  $yum_deps_baseurl     = undef,
+  $yum_products_baseurl = undef,
   ){
+
+
+  if $yum_deps_baseurl {
+    $yum_real_deps_baseurl = $yum_deps_baseurl
+  }
+  else {
+    $yum_real_deps_baseurl = "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/dependencies/\$basearch"
+  }
+
+  if $yum_products_baseurl {
+    $yum_real_products_baseurl = $yum_products_baseurl
+  }
+  else {
+    $yum_real_products_baseurl = "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/products/\$basearch"
+  }
+
   case $::osfamily {
     'Debian': {
       include ::apt
@@ -16,7 +34,7 @@ class puppetserver::repository (
     'RedHat': {
       yumrepo { 'puppetlabs-deps':
         descr          => "Puppet Labs Dependencies El ${::operatingsystemmajrelease} - \$basearch",
-        baseurl        => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/dependencies/\$basearch",
+        baseurl        => $yum_real_deps_baseurl,
         gpgcheck       => '1',
         gpgkey         => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
         enabled        => '1',
@@ -26,7 +44,7 @@ class puppetserver::repository (
       }
       yumrepo { 'puppetlabs-products':
         descr          => "Puppet Labs Products El ${::operatingsystemmajrelease} - \$basearch",
-        baseurl        => "http://yum.puppetlabs.com/el/${::operatingsystemmajrelease}/products/\$basearch",
+        baseurl        => $yum_real_products_baseurl,
         gpgcheck       => '1',
         gpgkey         => 'http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs',
         enabled        => '1',
