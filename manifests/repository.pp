@@ -6,7 +6,7 @@ class puppetserver::repository {
         location   => 'http://apt.puppetlabs.com',
         repos      => 'main',
         key        => '4BD6EC30',
-        key_server => 'pgp.mit.edu',
+        key_server => 'hkp://pgp.mit.edu:80',
       }
     }
     'RedHat': {
