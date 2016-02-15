@@ -4,10 +4,14 @@ class puppetserver::repository {
       include ::apt
       apt::source { 'puppetlabs':
         location   => 'http://apt.puppetlabs.com',
-        repos      => 'main',
-        key        => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
-        key_server => 'hkp://pgp.mit.edu:80',
+        repos      => 'main dependencies',
+        key        => {
+          id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
+          server => 'hkp://pgp.mit.edu:80',
+        },
+        notify     => Exec['apt_update'],
       }
+      Class['apt::update'] -> Package <| |>
     }
     'RedHat': {
       yumrepo { 'puppetlabs-deps':
