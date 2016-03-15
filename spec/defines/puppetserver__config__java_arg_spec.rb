@@ -15,7 +15,7 @@ describe 'puppetserver::config::java_arg' do
         it 'should fail' do
           expect {
             should compile
-          }.to raise_error(/Must pass value to Puppetserver::Config::Java_arg\[foo\]/)
+          }.to raise_error(/Puppetserver::Config::Java_arg\[foo\]/)
         end
       end
 
