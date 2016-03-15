@@ -1,3 +1,8 @@
+## 2016-03-15 - Release 2.1.0
+
+- Various test fixes
+- Add suport for yum proxy (GH #22)
+
 ## 2015-09-21 - Release 2.0.1
 
 - Cleanup unused code in Trapperkeeper lens
