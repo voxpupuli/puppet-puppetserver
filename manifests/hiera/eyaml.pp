@@ -14,9 +14,7 @@ class puppetserver::hiera::eyaml (
 
     'gpg': {
       package { 'ruby_gpg': } ->
-      package { 'hiera-eyaml-gpg':
-        ensure => '0.5.rc1',
-      }
+      package { 'hiera-eyaml-gpg': }
     }
 
     default: {
