@@ -5,7 +5,7 @@
 [![Build Status](https://img.shields.io/travis/camptocamp/puppet-puppetserver/master.svg)](https://travis-ci.org/camptocamp/puppet-puppetserver)
 [![Puppet Forge Endorsement](https://img.shields.io/puppetforge/e/camptocamp/puppetserver.svg)](https://forge.puppetlabs.com/camptocamp/puppetserver)
 [![Gemnasium](https://img.shields.io/gemnasium/camptocamp/puppet-puppetserver.svg)](https://gemnasium.com/camptocamp/puppet-puppetserver)
-[![By Camptocamp](https://img.shields.io/badge/by-camptocamp-fb7047.svg)](http://www.camptocamp.com)
+[![Donated by Camptocamp](https://img.shields.io/badge/by-camptocamp-fb7047.svg)](http://www.camptocamp.com)
 
 ## Overview
 
@@ -129,18 +129,11 @@ For pull requests, it is very much appreciated to check your Puppet manifest
 with [puppet-lint](http://puppet-lint.com/) to follow the recommended Puppet style guidelines from the
 [Puppet Labs style guide](http://docs.puppetlabs.com/guides/style_guide.html).
  
-## License
 
-Copyright (c) 2014 <mailto:puppet@camptocamp.com> All rights reserved.
+## Transfer Notice
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+This module was originally authored by [Camptocamp](http://www.camptocamp.com).
+Camptocamp stopped using this module and preferred that Voxpupuli take ownership of the module for future improvement and maintenance.
+Existing pull requests and issues were transferred over, please fork and continue to contribute here instead of Camptocamp.
 
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+Previously: https://github.com/camptocamp/puppet-puppetserver
