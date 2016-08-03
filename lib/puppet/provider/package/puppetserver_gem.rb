@@ -6,8 +6,9 @@ Puppet::Type.type(:package).provide :puppetserver_gem, :parent => :gem do
     repositories."
  
   has_feature :versionable, :install_options
-  # We're patching self.command, so we need to confine manually
-  confine :exists => which('puppetserver'), :for_binary => true
+
+  # Make sure we install puppetserver prior to puppetserver_gem's in manifest
+  confine :feature => :puppetserver_gem
  
   def self.command(name)
     return [which('puppetserver'), 'gem'] if name == :gemcmd
