@@ -51,8 +51,8 @@ describe 'puppetserver::config::java_arg' do
             it {
               should contain_augeas('Set puppetserver java_arg foo').with(
                               lens: 'Shellvars_list.lns',
-                incl: conffile,
-                changes: [
+                              incl: conffile,
+                              changes: [
                   'set JAVA_ARGS/quote \'"\'',
                   "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'"
                 ]
@@ -69,8 +69,8 @@ describe 'puppetserver::config::java_arg' do
             it {
               should contain_augeas('Set puppetserver java_arg foo').with(
                               lens: 'Shellvars_list.lns',
-                incl: conffile,
-                changes: [
+                              incl: conffile,
+                              changes: [
                   "rm JAVA_ARGS/value[.=~regexp('foo.*')]",
                   'rm JAVA_ARGS[count(value)=0]'
                 ]
