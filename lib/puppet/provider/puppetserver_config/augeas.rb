@@ -37,7 +37,7 @@ Puppet::Type.type(:puppetserver_config).provide(:augeas, parent: Puppet::Type.ty
       # Replace all values
       aug.rm('$resource/*')
       Array(vals).each_with_index do |v, i|
-        aug.set("$resource/#{i+1}", v)
+        aug.set("$resource/#{i + 1}", v)
       end
     else
       aug.set('$resource/@value', vals)
