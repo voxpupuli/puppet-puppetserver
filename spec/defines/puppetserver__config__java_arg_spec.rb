@@ -13,7 +13,7 @@ describe 'puppetserver::config::java_arg' do
         it 'should fail' do
           expect {
             should compile
-          }.to raise_error(/Puppetserver::Config::Java_arg\[foo\]/)
+          }.to raise_error(%r{Puppetserver::Config::Java_arg\[foo\]})
         end
       end
 
@@ -28,7 +28,7 @@ describe 'puppetserver::config::java_arg' do
           it 'should fail' do
             expect {
               should compile
-            }.to raise_error(/Could not find resource 'Class\[Puppetserver::Install\]' for relationship on 'Puppetserver::Config::Java_arg\[foo\]'/)
+            }.to raise_error(%r{Could not find resource 'Class\[Puppetserver::Install\]' for relationship on 'Puppetserver::Config::Java_arg\[foo\]'})
           end
         end
 

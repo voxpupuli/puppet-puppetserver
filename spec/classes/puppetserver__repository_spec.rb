@@ -19,12 +19,12 @@ describe 'puppetserver::repository' do
           it { should contain_yumrepo('puppetlabs-deps').without_proxy }
           it { should contain_yumrepo('puppetlabs-deps').without_proxy_username }
           it { should contain_yumrepo('puppetlabs-deps').without_proxy_password }
-          it { should contain_yumrepo('puppetlabs-deps').with_baseurl(/yum.puppetlabs.com/) }
+          it { should contain_yumrepo('puppetlabs-deps').with_baseurl(%r{yum.puppetlabs.com}) }
 
           it { should contain_yumrepo('puppetlabs-products').without_proxy }
           it { should contain_yumrepo('puppetlabs-products').without_proxy_username }
           it { should contain_yumrepo('puppetlabs-products').without_proxy_password }
-          it { should contain_yumrepo('puppetlabs-products').with_baseurl(/yum.puppetlabs.com/) }
+          it { should contain_yumrepo('puppetlabs-products').with_baseurl(%r{yum.puppetlabs.com}) }
         end
 
         context 'on redhat with parameters set' do
@@ -40,12 +40,12 @@ describe 'puppetserver::repository' do
           it { should contain_yumrepo('puppetlabs-deps').with('proxy' => 'http://proxy:8080/') }
           it { should contain_yumrepo('puppetlabs-deps').with('proxy_username' => 'user') }
           it { should contain_yumrepo('puppetlabs-deps').with('proxy_password' => 'password') }
-          it { should contain_yumrepo('puppetlabs-deps').with_baseurl(/yum.internal/) }
+          it { should contain_yumrepo('puppetlabs-deps').with_baseurl(%r{yum.internal}) }
 
           it { should contain_yumrepo('puppetlabs-products').with('proxy' => 'http://proxy:8080/') }
           it { should contain_yumrepo('puppetlabs-products').with('proxy_username' => 'user') }
           it { should contain_yumrepo('puppetlabs-products').with('proxy_password' => 'password') }
-          it { should contain_yumrepo('puppetlabs-products').with_baseurl(/yum.internal/) }
+          it { should contain_yumrepo('puppetlabs-products').with_baseurl(%r{yum.internal}) }
         end
       end
     end

@@ -46,7 +46,7 @@ Puppet::Type.newtype(:puppetserver_config) do
         ]
       ],
       [
-        /(.*)/,
+        %r{(.*)},
         [
           [:name, identity]
         ]
