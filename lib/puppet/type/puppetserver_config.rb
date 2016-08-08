@@ -34,7 +34,7 @@ Puppet::Type.newtype(:puppetserver_config) do
   end
 
   def self.title_patterns
-    identity = lambda { |x| x }
+    identity = ->(x) { x }
     [
       [
         /^((\/.+\.conf)\/(.+)\/([^\/]+))$/,
