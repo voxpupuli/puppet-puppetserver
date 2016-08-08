@@ -1,7 +1,6 @@
 require 'spec_helper_acceptance'
 
 describe 'puppetserver' do
-
   context 'with defaults' do
     it 'idempotentlies run' do
       pp = <<-EOS

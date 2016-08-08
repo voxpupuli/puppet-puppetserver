@@ -33,7 +33,6 @@ describe 'puppetserver::config::java_arg' do
         end
 
         context 'when declaring Class[puppetserver]' do
-
           let(:pre_condition) do
             "class { 'puppetserver': }"
           end
