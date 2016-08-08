@@ -32,9 +32,9 @@ describe puppetserver_config_type do
     end
 
     it 'fails if target is not an absolute path' do
-      expect {
+      expect do
         puppetserver_config_type.new name: 'foo', target: 'foo'
-      }.to raise_error
+      end.to raise_error
     end
   end
 end

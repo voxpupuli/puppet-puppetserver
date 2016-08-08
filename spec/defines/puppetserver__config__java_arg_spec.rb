@@ -11,9 +11,9 @@ describe 'puppetserver::config::java_arg' do
 
       context 'without param' do
         it 'fails' do
-          expect {
+          expect do
             should compile
-          }.to raise_error(%r{Puppetserver::Config::Java_arg\[foo\]})
+          end.to raise_error(%r{Puppetserver::Config::Java_arg\[foo\]})
         end
       end
 
@@ -26,9 +26,9 @@ describe 'puppetserver::config::java_arg' do
 
         context 'when not declaring Class[puppetserver]' do
           it 'fails' do
-            expect {
+            expect do
               should compile
-            }.to raise_error(%r{Could not find resource 'Class\[Puppetserver::Install\]' for relationship on 'Puppetserver::Config::Java_arg\[foo\]'})
+            end.to raise_error(%r{Could not find resource 'Class\[Puppetserver::Install\]' for relationship on 'Puppetserver::Config::Java_arg\[foo\]'})
           end
         end
 
@@ -48,7 +48,7 @@ describe 'puppetserver::config::java_arg' do
 
           context 'with no ensure' do
             it { should compile.with_all_deps }
-            it {
+            it do
               should contain_augeas('Set puppetserver java_arg foo').with(
                 lens: 'Shellvars_list.lns',
                 incl: conffile,
@@ -57,7 +57,7 @@ describe 'puppetserver::config::java_arg' do
     "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'"
   ]
               )
-            }
+            end
           end
 
           context 'with ensure => absent' do
@@ -66,7 +66,7 @@ describe 'puppetserver::config::java_arg' do
             end
 
             it { should compile.with_all_deps }
-            it {
+            it do
               should contain_augeas('Set puppetserver java_arg foo').with(
                 lens: 'Shellvars_list.lns',
                 incl: conffile,
@@ -75,7 +75,7 @@ describe 'puppetserver::config::java_arg' do
     'rm JAVA_ARGS[count(value)=0]'
   ]
               )
-            }
+            end
           end
         end
       end
