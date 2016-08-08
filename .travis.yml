@@ -31,12 +31,16 @@ matrix:
     env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=rubocop
   - rvm: 2.3.1
     env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 2.4.0-preview1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
   - rvm: default
     env: BEAKER_set="debian-7-x86_64-docker" PUPPET_AIO="yes"
   - rvm: default
     env: BEAKER_set="centos-6-x86_64-docker" PUPPET_AIO="yes"
   - rvm: default
     env: BEAKER_set="centos-7-x86_64-docker" PUPPET_AIO="yes"
+  allow_failures:
+    - rvm: 2.4.0-preview1
 notifications:
   email: false
 deploy:
