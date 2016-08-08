@@ -1,5 +1,5 @@
 Puppet::Type.type(:puppetserver_config).provide(:augeas, parent: Puppet::Type.type(:augeasprovider).provider(:default)) do
-  desc "Uses the Augeas API to update a puppetserver native parameter"
+  desc 'Uses the Augeas API to update a puppetserver native parameter'
 
   default_file { '/etc/puppetserver/conf.d/puppetserver.conf' }
 

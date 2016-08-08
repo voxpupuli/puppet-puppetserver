@@ -1,22 +1,22 @@
 Puppet::Type.newtype(:puppetserver_config) do
-  @doc = "Manages puppetserver native config entries."
+  @doc = 'Manages puppetserver native config entries.'
   
   ensurable
 
   newparam(:name, namevar: true) do
-    desc "The default namevar."
+    desc 'The default namevar.'
   end
 
   newparam(:key, namevar: true) do
-    desc "The setting name."
+    desc 'The setting name.'
   end
 
   newparam(:path, namevar: true) do
-    desc "The path to the setting in the file."
+    desc 'The path to the setting in the file.'
   end
 
   newparam(:type, namevar: true) do
-    desc "The type of setting."
+    desc 'The type of setting.'
 
     newvalues(:simple, :array)
     defaultto(:simple)
