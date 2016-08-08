@@ -37,14 +37,14 @@ describe 'puppetserver::repository' do
               yum_products_baseurl: 'http://yum.internal/products/'
             }
           end
-          it { should contain_yumrepo('puppetlabs-deps').with({ 'proxy' => 'http://proxy:8080/' }) }
-          it { should contain_yumrepo('puppetlabs-deps').with({ 'proxy_username' => 'user' }) }
-          it { should contain_yumrepo('puppetlabs-deps').with({ 'proxy_password' => 'password' }) }
+          it { should contain_yumrepo('puppetlabs-deps').with('proxy' => 'http://proxy:8080/') }
+          it { should contain_yumrepo('puppetlabs-deps').with('proxy_username' => 'user') }
+          it { should contain_yumrepo('puppetlabs-deps').with('proxy_password' => 'password') }
           it { should contain_yumrepo('puppetlabs-deps').with_baseurl(/yum.internal/) }
 
-          it { should contain_yumrepo('puppetlabs-products').with({ 'proxy' => 'http://proxy:8080/' }) }
-          it { should contain_yumrepo('puppetlabs-products').with({ 'proxy_username' => 'user' }) }
-          it { should contain_yumrepo('puppetlabs-products').with({ 'proxy_password' => 'password' }) }
+          it { should contain_yumrepo('puppetlabs-products').with('proxy' => 'http://proxy:8080/') }
+          it { should contain_yumrepo('puppetlabs-products').with('proxy_username' => 'user') }
+          it { should contain_yumrepo('puppetlabs-products').with('proxy_password' => 'password') }
           it { should contain_yumrepo('puppetlabs-products').with_baseurl(/yum.internal/) }
         end
       end
