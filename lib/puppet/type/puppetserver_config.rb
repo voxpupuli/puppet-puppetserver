@@ -42,13 +42,13 @@ Puppet::Type.newtype(:puppetserver_config) do
           [ :name, identity ],
           [ :target, identity ],
           [ :path, identity ],
-          [ :key, identity ],
+          [ :key, identity ]
         ]
       ],
       [
         /(.*)/,
         [
-          [ :name, identity ],
+          [ :name, identity ]
         ]
       ]
     ]

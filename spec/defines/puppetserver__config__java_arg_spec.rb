@@ -7,7 +7,7 @@ describe 'puppetserver::config::java_arg' do
     context "on #{os}" do
       let(:facts) do
         facts.merge({
-          :memorysize_mb => '3072',
+          :memorysize_mb => '3072'
         })
       end
 
@@ -22,7 +22,7 @@ describe 'puppetserver::config::java_arg' do
       context 'when value => bar' do
         let(:params) do
           {
-            :value => 'bar',
+            :value => 'bar'
           }
         end
 
@@ -58,8 +58,8 @@ describe 'puppetserver::config::java_arg' do
                 :incl    => conffile,
                 :changes => [
                   'set JAVA_ARGS/quote \'"\'',
-                  "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'",
-                ],
+                  "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'"
+                ]
               }
               )
             }
@@ -78,8 +78,8 @@ describe 'puppetserver::config::java_arg' do
                 :incl    => conffile,
                 :changes => [
                   "rm JAVA_ARGS/value[.=~regexp('foo.*')]",
-                  'rm JAVA_ARGS[count(value)=0]',
-                ],
+                  'rm JAVA_ARGS[count(value)=0]'
+                ]
               }
               )
             }
