@@ -32,3 +32,4 @@
       script: bundle exec rspec spec/acceptance/*_spec.rb
 spec/spec_helper.rb:
   augeasproviders: true
+  spec_overrides: "require 'spec_helper_methods'"
