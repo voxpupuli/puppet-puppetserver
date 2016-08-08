@@ -9,7 +9,7 @@ describe provider_class do
     let(:tmptarget) { aug_fixture('empty') }
     let(:target) { tmptarget.path }
 
-    it 'should create simple new entry' do
+    it 'creates simple new entry' do
       apply!(Puppet::Type.type(:puppetserver_config).new(
         name: 'foo',
         key: 'foo',
@@ -24,7 +24,7 @@ describe provider_class do
       end
     end
 
-    it 'should create an array entry' do
+    it 'creates an array entry' do
       apply!(Puppet::Type.type(:puppetserver_config).new(
         name: 'foo',
         key: 'foo',
@@ -46,7 +46,7 @@ describe provider_class do
     let(:target) { tmptarget.path }
 
     describe 'when creating settings' do
-      it 'should create a simple entry' do
+      it 'creates a simple entry' do
         apply!(Puppet::Type.type(:puppetserver_config).new(
           name: 'foo',
           key: 'foo',
@@ -61,7 +61,7 @@ describe provider_class do
         end
       end
 
-      it 'should create an array entry' do
+      it 'creates an array entry' do
         apply!(Puppet::Type.type(:puppetserver_config).new(
           name: 'foo',
           key: 'foo',
@@ -79,7 +79,7 @@ describe provider_class do
     end
 
     describe 'when deleting settings' do
-      it 'should delete a setting' do
+      it 'deletes a setting' do
         apply!(Puppet::Type.type(:puppetserver_config).new(
           name: 'client-whitelist',
           key: 'client-whitelist',
@@ -97,7 +97,7 @@ describe provider_class do
     end
 
     describe 'when updating settings' do
-      it 'should replace a setting' do
+      it 'replaces a setting' do
         apply!(Puppet::Type.type(:puppetserver_config).new(
           name: 'client-whitelist',
           key: 'client-whitelist',
@@ -119,7 +119,7 @@ describe provider_class do
     let(:tmptarget) { aug_fixture('broken') }
     let(:target) { tmptarget.path }
 
-    it 'should fail to load' do
+    it 'fails to load' do
       txn = apply(Puppet::Type.type(:puppetserver_config).new(
         name: 'foo',
         value: 'yes',

@@ -3,7 +3,7 @@ require 'spec_helper_acceptance'
 describe 'puppetserver' do
 
   context 'with defaults' do
-    it 'should idempotently run' do
+    it 'idempotentlies run' do
       pp = <<-EOS
         class { 'puppetserver': }
       EOS
@@ -30,7 +30,7 @@ describe 'puppetserver' do
   end
 
   context 'when overriding ssl-port' do
-    it 'should idempotently run' do
+    it 'idempotentlies run' do
       pp = <<-EOS
         class { 'puppetserver':
           config => {

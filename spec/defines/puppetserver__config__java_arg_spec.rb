@@ -10,7 +10,7 @@ describe 'puppetserver::config::java_arg' do
       end
 
       context 'without param' do
-        it 'should fail' do
+        it 'fails' do
           expect {
             should compile
           }.to raise_error(%r{Puppetserver::Config::Java_arg\[foo\]})
@@ -25,7 +25,7 @@ describe 'puppetserver::config::java_arg' do
         end
 
         context 'when not declaring Class[puppetserver]' do
-          it 'should fail' do
+          it 'fails' do
             expect {
               should compile
             }.to raise_error(%r{Could not find resource 'Class\[Puppetserver::Install\]' for relationship on 'Puppetserver::Config::Java_arg\[foo\]'})
