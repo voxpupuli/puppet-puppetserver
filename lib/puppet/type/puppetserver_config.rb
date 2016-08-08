@@ -3,19 +3,19 @@ Puppet::Type.newtype(:puppetserver_config) do
   
   ensurable
 
-  newparam(:name, :namevar => true) do
+  newparam(:name, namevar: true) do
     desc "The default namevar."
   end
 
-  newparam(:key, :namevar => true) do
+  newparam(:key, namevar: true) do
     desc "The setting name."
   end
 
-  newparam(:path, :namevar => true) do
+  newparam(:path, namevar: true) do
     desc "The path to the setting in the file."
   end
 
-  newparam(:type, :namevar => true) do
+  newparam(:type, namevar: true) do
     desc "The type of setting."
 
     newvalues(:simple, :array)
@@ -54,7 +54,7 @@ Puppet::Type.newtype(:puppetserver_config) do
     ]
   end
 
-  newproperty(:value, :array_matching => :all) do
+  newproperty(:value, array_matching: :all) do
   end
 
   autorequire(:file) do

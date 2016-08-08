@@ -7,7 +7,7 @@ describe 'puppetserver::config::java_arg' do
     context "on #{os}" do
       let(:facts) do
         facts.merge({
-          :memorysize_mb => '3072'
+          memorysize_mb: '3072'
         })
       end
 
@@ -22,7 +22,7 @@ describe 'puppetserver::config::java_arg' do
       context 'when value => bar' do
         let(:params) do
           {
-            :value => 'bar'
+            value: 'bar'
           }
         end
 
@@ -54,9 +54,9 @@ describe 'puppetserver::config::java_arg' do
             it {
               should contain_augeas('Set puppetserver java_arg foo').with(
               {
-                :lens    => 'Shellvars_list.lns',
-                :incl    => conffile,
-                :changes => [
+                lens: 'Shellvars_list.lns',
+                incl: conffile,
+                changes: [
                   'set JAVA_ARGS/quote \'"\'',
                   "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'"
                 ]
@@ -67,16 +67,16 @@ describe 'puppetserver::config::java_arg' do
 
           context 'with ensure => absent' do
             let(:params) do
-              super().merge({:ensure => 'absent'})
+              super().merge({ensure: 'absent'})
             end
 
             it { should compile.with_all_deps }
             it {
               should contain_augeas('Set puppetserver java_arg foo').with(
               {
-                :lens    => 'Shellvars_list.lns',
-                :incl    => conffile,
-                :changes => [
+                lens: 'Shellvars_list.lns',
+                incl: conffile,
+                changes: [
                   "rm JAVA_ARGS/value[.=~regexp('foo.*')]",
                   'rm JAVA_ARGS[count(value)=0]'
                 ]

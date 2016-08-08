@@ -30,11 +30,11 @@ describe 'puppetserver::repository' do
         context 'on redhat with parameters set' do
           let(:params) do
             {
-              :yum_proxy            => 'http://proxy:8080/',
-              :yum_proxy_username   => 'user',
-              :yum_proxy_password   => 'password',
-              :yum_deps_baseurl     => 'http://yum.internal/deps/',
-              :yum_products_baseurl => 'http://yum.internal/products/'
+              yum_proxy: 'http://proxy:8080/',
+              yum_proxy_username: 'user',
+              yum_proxy_password: 'password',
+              yum_deps_baseurl: 'http://yum.internal/deps/',
+              yum_products_baseurl: 'http://yum.internal/products/'
             }
           end
           it { should contain_yumrepo('puppetlabs-deps').with({ 'proxy' => 'http://proxy:8080/' }) }

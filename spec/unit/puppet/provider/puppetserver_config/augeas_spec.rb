@@ -11,12 +11,12 @@ describe provider_class do
 
     it "should create simple new entry" do
       apply!(Puppet::Type.type(:puppetserver_config).new(
-        :name     => "foo",
-        :key      => "foo",
-        :path     => "bar",
-        :value    => "42",
-        :target   => target,
-        :provider => "augeas"
+        name: "foo",
+        key: "foo",
+        path: "bar",
+        value: "42",
+        target: target,
+        provider: "augeas"
       ))
 
       aug_open(target, "Trapperkeeper.lns") do |aug|
@@ -26,12 +26,12 @@ describe provider_class do
 
     it "should create an array entry" do
       apply!(Puppet::Type.type(:puppetserver_config).new(
-        :name     => "foo",
-        :key      => "foo",
-        :path     => "bar",
-        :value    => ["42", "24"],
-        :target   => target,
-        :provider => "augeas"
+        name: "foo",
+        key: "foo",
+        path: "bar",
+        value: ["42", "24"],
+        target: target,
+        provider: "augeas"
       ))
 
       aug_open(target, "Trapperkeeper.lns") do |aug|
@@ -48,12 +48,12 @@ describe provider_class do
     describe "when creating settings" do
       it "should create a simple entry" do
         apply!(Puppet::Type.type(:puppetserver_config).new(
-          :name     => "foo",
-          :key      => "foo",
-          :path     => "bar",
-          :value    => "42",
-          :target   => target,
-          :provider => "augeas"
+          name: "foo",
+          key: "foo",
+          path: "bar",
+          value: "42",
+          target: target,
+          provider: "augeas"
         ))
 
         aug_open(target, "Trapperkeeper.lns") do |aug|
@@ -63,12 +63,12 @@ describe provider_class do
 
       it "should create an array entry" do
         apply!(Puppet::Type.type(:puppetserver_config).new(
-          :name     => "foo",
-          :key      => "foo",
-          :path     => "bar",
-          :value    => ["42", "24"],
-          :target   => target,
-          :provider => "augeas"
+          name: "foo",
+          key: "foo",
+          path: "bar",
+          value: ["42", "24"],
+          target: target,
+          provider: "augeas"
         ))
 
         aug_open(target, "Trapperkeeper.lns") do |aug|
@@ -81,13 +81,13 @@ describe provider_class do
     describe "when deleting settings" do
       it "should delete a setting" do
         apply!(Puppet::Type.type(:puppetserver_config).new(
-          :name     => "client-whitelist",
-          :key      => "client-whitelist",
-          :path     => "puppet-admin",
-          :ensure   => :absent,
-          :type     => :array,
-          :target   => target,
-          :provider => "augeas"
+          name: "client-whitelist",
+          key: "client-whitelist",
+          path: "puppet-admin",
+          ensure: :absent,
+          type: :array,
+          target: target,
+          provider: "augeas"
         ))
 
         aug_open(target, "Trapperkeeper.lns") do |aug|
@@ -99,12 +99,12 @@ describe provider_class do
     describe "when updating settings" do
       it "should replace a setting" do
         apply!(Puppet::Type.type(:puppetserver_config).new(
-          :name     => "client-whitelist",
-          :key      => "client-whitelist",
-          :path     => "puppet-admin",
-          :value    => [ "foo", "bar" ],
-          :target   => target,
-          :provider => "augeas"
+          name: "client-whitelist",
+          key: "client-whitelist",
+          path: "puppet-admin",
+          value: [ "foo", "bar" ],
+          target: target,
+          provider: "augeas"
         ))
 
         aug_open(target, "Trapperkeeper.lns") do |aug|
@@ -121,10 +121,10 @@ describe provider_class do
 
     it "should fail to load" do
       txn = apply(Puppet::Type.type(:puppetserver_config).new(
-        :name     => "foo",
-        :value    => "yes",
-        :target   => target,
-        :provider => "augeas"
+        name: "foo",
+        value: "yes",
+        target: target,
+        provider: "augeas"
       ))
 
       expect(txn.any_failed?).not_to eq(nil)
