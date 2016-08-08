@@ -53,9 +53,9 @@ describe 'puppetserver::config::java_arg' do
                 lens: 'Shellvars_list.lns',
                 incl: conffile,
                 changes: [
-    'set JAVA_ARGS/quote \'"\'',
+                  'set JAVA_ARGS/quote \'"\'',
     "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'"
-  ]
+                ]
               )
             end
           end
@@ -71,9 +71,9 @@ describe 'puppetserver::config::java_arg' do
                 lens: 'Shellvars_list.lns',
                 incl: conffile,
                 changes: [
-    "rm JAVA_ARGS/value[.=~regexp('foo.*')]",
+                  "rm JAVA_ARGS/value[.=~regexp('foo.*')]",
     'rm JAVA_ARGS[count(value)=0]'
-  ]
+                ]
               )
             end
           end
