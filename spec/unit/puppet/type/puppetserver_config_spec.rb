@@ -38,4 +38,3 @@ describe puppetserver_config_type do
     end
   end
 end
-
