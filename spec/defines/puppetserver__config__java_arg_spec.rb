@@ -6,7 +6,7 @@ describe 'puppetserver::config::java_arg' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do
-        facts.merge(          memorysize_mb: '3072')
+        facts.merge(memorysize_mb: '3072')
       end
 
       context 'without param' do
