@@ -3,7 +3,7 @@
   acceptance:
     - '*'
   use_containers: false
-  install: 
+  install:
     - "travis_retry ./.travis.sh"
   script:
     - bundle exec rake validate
