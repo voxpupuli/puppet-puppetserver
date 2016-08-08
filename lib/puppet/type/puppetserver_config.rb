@@ -39,16 +39,16 @@ Puppet::Type.newtype(:puppetserver_config) do
       [
         /^((\/.+\.conf)\/(.+)\/([^\/]+))$/,
         [
-          [ :name, identity ],
-          [ :target, identity ],
-          [ :path, identity ],
-          [ :key, identity ]
+          [:name, identity],
+          [:target, identity],
+          [:path, identity],
+          [:key, identity]
         ]
       ],
       [
         /(.*)/,
         [
-          [ :name, identity ]
+          [:name, identity]
         ]
       ]
     ]

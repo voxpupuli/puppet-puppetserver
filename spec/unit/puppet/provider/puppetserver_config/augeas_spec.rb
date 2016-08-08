@@ -102,7 +102,7 @@ describe provider_class do
           name: "client-whitelist",
           key: "client-whitelist",
           path: "puppet-admin",
-          value: [ "foo", "bar" ],
+          value: ["foo", "bar"],
           target: target,
           provider: "augeas"
         ))
