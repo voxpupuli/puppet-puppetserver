@@ -29,7 +29,7 @@ describe provider_class do
         name: 'foo',
         key: 'foo',
         path: 'bar',
-        value: ['42', '24'],
+        value: %w(42 24),
         target: target,
         provider: 'augeas'
       ))
@@ -66,7 +66,7 @@ describe provider_class do
           name: 'foo',
           key: 'foo',
           path: 'bar',
-          value: ['42', '24'],
+          value: %w(42 24),
           target: target,
           provider: 'augeas'
         ))
@@ -102,7 +102,7 @@ describe provider_class do
           name: 'client-whitelist',
           key: 'client-whitelist',
           path: 'puppet-admin',
-          value: ['foo', 'bar'],
+          value: %w(foo bar),
           target: target,
           provider: 'augeas'
         ))
