@@ -53,7 +53,7 @@ describe 'puppetserver' do
       it { should be_running }
     end
 
-    describe port(18140) do
+    describe port(18_140) do
       it { should be_listening }
     end
 
