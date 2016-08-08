@@ -1,6 +1,6 @@
 Puppet::Type.newtype(:puppetserver_config) do
   @doc = 'Manages puppetserver native config entries.'
-  
+
   ensurable
 
   newparam(:name, namevar: true) do
