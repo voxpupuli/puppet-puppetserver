@@ -29,6 +29,7 @@ group :test do
   gem 'rubocop-rspec', '~> 1.6',                                    :require => false if RUBY_VERSION >= '2.3.0'
   gem 'json_pure', '<= 2.0.1',                                      :require => false if RUBY_VERSION < '2.0.0'
   gem 'augeas',                                                     :require => false
+  gem 'ruby-augeas',                                                :require => false
 end
 
 group :development do
