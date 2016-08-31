@@ -12,7 +12,7 @@ RSpec.configure do |c|
   c.before :each do
     # Store any environment variables away to be restored later
     @old_env = {}
-    ENV.each_key {|k| @old_env[k] = ENV[k]}
+    ENV.each_key { |k| @old_env[k] = ENV[k] }
 
     c.strict_variables = Gem::Version.new(Puppet.version) >= Gem::Version.new('3.5')
     Puppet.features.stubs(:root?).returns(true)
