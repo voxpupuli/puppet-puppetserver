@@ -32,12 +32,12 @@ sudo apt-get install -y augeas-tools${PKG_VERSION} \
                         libxml2-dev
 
 # Install gems
-gem install bundler
-if [ -z $BEAKER_set ]; then
-  bundle install --without system_tests
-else
-  bundle install
-fi
+#gem install bundler
+#if [ -z $BEAKER_set ]; then
+#  bundle install --without system_tests
+#else
+#  bundle install
+#fi
 
 # Reporting only
 bundle show
