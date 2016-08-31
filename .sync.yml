@@ -10,7 +10,7 @@
     - bundle exec rake lint
     - AUGEAS_LENS_LIB=files/lenses bundle exec rake spec SPEC_OPTS='--format documentation'
     - bundle exec rake metadata
-  forge_password: "QcG6iRpDC8ojkaCsrO3HVyBCspKcc2lkxRlBLG5X61Gp8dytr36tzndldMsxGW4CgTnCWNuRlJhfKwvH8ObSR8hDZyQkNwzoOSRMIUM9SGvHKqCScSMW1gjdNvh/0oMt/WbZEcyN7/XIEmQqtMmXShBaQ0yWYdp3TvgfNSJ/NdM="
+  secure: "etCGQI0hjcKLcm7WcdUONSCh3TWM+SSoqCVMdMsulcVKeAR2CWPSi2nga7TKsDAlKQ2XxXPVYcBpFf+p0gxbAvV4jCFNU96KTtHAMkJbIASYhtHr9Ixk/ToG6hhdywvjAZRS7xvAOwUgWEoA6gA0jJy5nNu+hUZRpvdPreM/DgE="
   extras:
     - rvm: default
       sudo: required
