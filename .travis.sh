@@ -40,6 +40,6 @@ sudo apt-get install -y augeas-tools${PKG_VERSION} \
 #fi
 
 # Reporting only
-bundle show
-puppet --version
+#bundle show
+#puppet --version
 augtool --version
