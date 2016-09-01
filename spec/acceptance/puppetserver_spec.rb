@@ -1,15 +1,14 @@
 require 'spec_helper_acceptance'
 
 describe 'puppetserver' do
-
   context 'with defaults' do
-    it 'should idempotently run' do
+    it 'idempotentlies run' do
       pp = <<-EOS
         class { 'puppetserver': }
       EOS
 
-      apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes => true)
+      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, catch_changes: true)
     end
 
     describe package('puppetserver') do
@@ -18,7 +17,7 @@ describe 'puppetserver' do
 
     describe service('puppetserver') do
       it do
-        pending 'Fails on Debian8 (packaging issue?)' if fact('operatingsystem') == 'Debian' and fact('lsbdistcodename') == 'jessie'
+        pending 'Fails on Debian8 (packaging issue?)' if fact('operatingsystem') == 'Debian' && fact('lsbdistcodename') == 'jessie'
         should be_enabled
       end
       it { should be_running }
@@ -30,7 +29,7 @@ describe 'puppetserver' do
   end
 
   context 'when overriding ssl-port' do
-    it 'should idempotently run' do
+    it 'idempotentlies run' do
       pp = <<-EOS
         class { 'puppetserver':
           config => {
@@ -41,8 +40,8 @@ describe 'puppetserver' do
         }
       EOS
 
-      apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes => true)
+      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, catch_changes: true)
     end
 
     describe package('puppetserver') do
@@ -54,7 +53,7 @@ describe 'puppetserver' do
       it { should be_running }
     end
 
-    describe port(18140) do
+    describe port(18_140) do
       it { should be_listening }
     end
 

@@ -1,10 +1,14 @@
 pkg/
 Gemfile.lock
+Gemfile.local
 vendor/
-spec/fixtures/
+.vendor/
+spec/fixtures/manifests/
+spec/fixtures/modules/
 .vagrant/
 .bundle/
 coverage/
 log/
-.*.swp
-*~
+.idea/
+*.iml
+.*.sw
