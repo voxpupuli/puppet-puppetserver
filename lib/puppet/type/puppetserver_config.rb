@@ -1,22 +1,22 @@
 Puppet::Type.newtype(:puppetserver_config) do
-  @doc = 'Manages puppetserver native config entries.'
-
+  @doc = "Manages puppetserver native config entries."
+  
   ensurable
 
-  newparam(:name, namevar: true) do
-    desc 'The default namevar.'
+  newparam(:name, :namevar => true) do
+    desc "The default namevar."
   end
 
-  newparam(:key, namevar: true) do
-    desc 'The setting name.'
+  newparam(:key, :namevar => true) do
+    desc "The setting name."
   end
 
-  newparam(:path, namevar: true) do
-    desc 'The path to the setting in the file.'
+  newparam(:path, :namevar => true) do
+    desc "The path to the setting in the file."
   end
 
-  newparam(:type, namevar: true) do
-    desc 'The type of setting.'
+  newparam(:type, :namevar => true) do
+    desc "The type of setting."
 
     newvalues(:simple, :array)
     defaultto(:simple)
@@ -34,27 +34,27 @@ Puppet::Type.newtype(:puppetserver_config) do
   end
 
   def self.title_patterns
-    identity = ->(x) { x }
+    identity = lambda { |x| x }
     [
       [
         /^((\/.+\.conf)\/(.+)\/([^\/]+))$/,
         [
-          [:name, identity],
-          [:target, identity],
-          [:path, identity],
-          [:key, identity]
+          [ :name, identity ],
+          [ :target, identity ],
+          [ :path, identity ],
+          [ :key, identity ],
         ]
       ],
       [
-        %r{(.*)},
+        /(.*)/,
         [
-          [:name, identity]
+          [ :name, identity ],
         ]
       ]
     ]
   end
 
-  newproperty(:value, array_matching: :all) do
+  newproperty(:value, :array_matching => :all) do
   end
 
   autorequire(:file) do
