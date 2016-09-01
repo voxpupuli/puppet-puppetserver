@@ -119,7 +119,7 @@ gem { 'hiera-eyaml':
   provider => puppetserver_gem,
 }
 ```
- 
+
 ## Contributing
 
 Please report bugs and feature request using [GitHub issue
@@ -128,7 +128,7 @@ tracker](https://github.com/camptocamp/puppet-puppetserver/issues).
 For pull requests, it is very much appreciated to check your Puppet manifest
 with [puppet-lint](http://puppet-lint.com/) to follow the recommended Puppet style guidelines from the
 [Puppet Labs style guide](http://docs.puppetlabs.com/guides/style_guide.html).
- 
+
 
 ## Transfer Notice
 
