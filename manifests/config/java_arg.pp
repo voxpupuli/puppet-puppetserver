@@ -6,7 +6,7 @@ define puppetserver::config::java_arg (
   Class['puppetserver::install'] ->
   Puppetserver::Config::Java_arg[$title] ~>
   Class['puppetserver::service']
-  
+
   case $ensure {
     'present': {
       $changes = [
