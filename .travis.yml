@@ -1,4 +1,5 @@
 ---
+sudo: false
 language: ruby
 cache: bundler
 bundler_args: --without system_tests development
@@ -9,7 +10,6 @@ before_install:
   - gem update bundler
   - gem --version
   - bundle -v
-install: ./.travis.sh
 script:
   - 'bundle exec rake $CHECK'
 matrix:
@@ -35,10 +35,16 @@ matrix:
     env: PUPPET_VERSION="~> 4.0" CHECK=test
   - rvm: default
     env: BEAKER_set="debian-7-x86_64-docker" PUPPET_AIO="yes"
+    services: docker
+    sudo: required
   - rvm: default
     env: BEAKER_set="centos-6-x86_64-docker" PUPPET_AIO="yes"
+    services: docker
+    sudo: required
   - rvm: default
     env: BEAKER_set="centos-7-x86_64-docker" PUPPET_AIO="yes"
+    services: docker
+    sudo: required
   allow_failures:
     - rvm: 2.4.0-preview1
 notifications:
