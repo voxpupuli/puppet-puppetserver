@@ -52,11 +52,6 @@ group :system_tests do
   end
   gem 'serverspec',                    :require => false
   gem 'beaker-puppet_install_helper',  :require => false
-  gem 'beaker',               :require => false
-  gem 'beaker-rspec', '> 5',  :require => false
-  gem 'beaker_spec_helper',   :require => false
-  gem 'serverspec',           :require => false
-  gem 'specinfra',            :require => false
 end
 
 
