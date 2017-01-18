@@ -2,6 +2,19 @@ require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-facts'
 include RspecPuppetFacts
 
+# Setup augeasproviders
+require 'pathname'
+dir = Pathname.new(__FILE__).parent
+$LOAD_PATH.unshift(dir, File.join(dir, 'fixtures/modules/augeasproviders_core/spec/lib'), File.join(dir, '..', 'lib'))
+require 'augeas_spec'
+require 'pathname'
+dir = Pathname.new(__FILE__).parent
+Puppet[:modulepath] = File.join(dir, 'fixtures', 'modules')
+ver = Gem::Version.new(Puppet.version.split('-').first)
+puts "augeasproviders: setting Puppet[:libdir] to work around broken type autoloading"
+# libdir is only a single dir, so it can only workaround loading of one external module
+Puppet[:libdir] = "#{Puppet[:modulepath]}/augeasproviders_core/lib"
+
 if Dir.exist?(File.expand_path('../../lib', __FILE__)) && RUBY_VERSION !~ %r{^1.9}
   require 'coveralls'
   require 'simplecov'
