@@ -6,36 +6,31 @@ describe 'puppetserver::config::java_arg' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do
-        facts.merge({
-          :memorysize_mb => '3072',
-        })
+        facts.merge(
+          memorysize_mb: '3072'
+        )
       end
 
       context 'without param' do
-        it 'should fail' do
-          expect {
-            should compile
-          }.to raise_error(/Puppetserver::Config::Java_arg\[foo\]/)
+        it 'fails' do
+          expect { is_expected.to compile }.to raise_error(/Puppetserver::Config::Java_arg\[foo\]/)
         end
       end
 
       context 'when value => bar' do
         let(:params) do
           {
-            :value => 'bar',
+            value: 'bar'
           }
         end
 
         context 'when not declaring Class[puppetserver]' do
-          it 'should fail' do
-            expect {
-              should compile
-            }.to raise_error(/Could not find resource 'Class\[Puppetserver::Install\]' for relationship on 'Puppetserver::Config::Java_arg\[foo\]'/)
+          it 'fails' do
+            expect { is_expected.to compile }.to raise_error(%r{Could not find resource 'Class\[Puppetserver::Install\]' for relationship on 'Puppetserver::Config::Java_arg\[foo\]'})
           end
         end
 
         context 'when declaring Class[puppetserver]' do
-
           let(:pre_condition) do
             "class { 'puppetserver': }"
           end
@@ -50,39 +45,37 @@ describe 'puppetserver::config::java_arg' do
           end
 
           context 'with no ensure' do
-            it { should compile.with_all_deps }
-            it {
-              should contain_augeas('Set puppetserver java_arg foo').with(
-              {
-                :lens    => 'Shellvars_list.lns',
-                :incl    => conffile,
-                :changes => [
+            it { is_expected.to compile.with_all_deps }
+            it do
+              is_expected.to contain_augeas('Set puppetserver java_arg foo').with(
+                lens:    'Shellvars_list.lns',
+                incl:    conffile,
+                changes: [
                   'set JAVA_ARGS/quote \'"\'',
-                  "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'",
-                ],
-              }
+                  "set JAVA_ARGS/value[.=~regexp('foo.*')] 'foobar'"
+                ]
               )
-            }
+            end
           end
 
           context 'with ensure => absent' do
             let(:params) do
-              super().merge({:ensure => 'absent'})
+              super().merge(
+                ensure: 'absent'
+              )
             end
 
-            it { should compile.with_all_deps }
-            it {
-              should contain_augeas('Set puppetserver java_arg foo').with(
-              {
-                :lens    => 'Shellvars_list.lns',
-                :incl    => conffile,
-                :changes => [
+            it { is_expected.to compile.with_all_deps }
+            it do
+              is_expected.to contain_augeas('Set puppetserver java_arg foo').with(
+                lens:    'Shellvars_list.lns',
+                incl:    conffile,
+                changes: [
                   "rm JAVA_ARGS/value[.=~regexp('foo.*')]",
-                  'rm JAVA_ARGS[count(value)=0]',
-                ],
-              }
+                  'rm JAVA_ARGS[count(value)=0]'
+                ]
               )
-            }
+            end
           end
         end
       end
