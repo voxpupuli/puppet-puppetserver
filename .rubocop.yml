@@ -518,3 +518,6 @@ RSpec/RepeatedDescription:
 
 RSpec/NestedGroups:
   Enabled: False
+
+Security/YAMLLoad:
+  Enabled: False

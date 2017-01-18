@@ -10,8 +10,7 @@ require 'augeas_spec'
 require 'pathname'
 dir = Pathname.new(__FILE__).parent
 Puppet[:modulepath] = File.join(dir, 'fixtures', 'modules')
-ver = Gem::Version.new(Puppet.version.split('-').first)
-puts "augeasproviders: setting Puppet[:libdir] to work around broken type autoloading"
+puts 'augeasproviders: setting Puppet[:libdir] to work around broken type autoloading'
 # libdir is only a single dir, so it can only workaround loading of one external module
 Puppet[:libdir] = "#{Puppet[:modulepath]}/augeasproviders_core/lib"
 
