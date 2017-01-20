@@ -522,3 +522,23 @@ RSpec/NestedGroups:
 # disable Yaml safe_load. This is needed to support ruby2.0.0 development envs
 Security/YAMLLoad:
   Enabled: false
+
+
+#------------------------------
+# CUSTOM 
+
+# Offense count: 2
+# Configuration parameters: AssignmentOnly.
+RSpec/InstanceVariable:
+  Exclude:
+    - 'spec/unit/puppet/provider/puppetserver_config/augeas_spec.rb'
+
+# Offense count: 4
+RSpec/MultipleExpectations:
+  Max: 3
+
+# Offense count: 1
+Style/AccessorMethodName:
+  Exclude:
+    - 'lib/puppet/provider/puppetserver_config/augeas.rb'
+
