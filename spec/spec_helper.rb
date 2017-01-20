@@ -14,7 +14,7 @@ puts 'augeasproviders: setting Puppet[:libdir] to work around broken type autolo
 # libdir is only a single dir, so it can only workaround loading of one external module
 Puppet[:libdir] = "#{Puppet[:modulepath]}/augeasproviders_core/lib"
 
-if Dir.exist?(File.expand_path('../../lib', __FILE__)) && RUBY_VERSION !~ %r{^1.9}
+if Dir.exist?(File.expand_path('../../lib', __FILE__))
   require 'coveralls'
   require 'simplecov'
   require 'simplecov-console'

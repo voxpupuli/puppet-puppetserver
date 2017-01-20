@@ -4,9 +4,10 @@ addons:
   apt:
     packages:
       - libaugeas-dev
+dist: trusty
 language: ruby
 cache: bundler
-bundler_args: --without system_tests development
+bundler_args: --without development
 before_install:
   - bundle -v
   - rm Gemfile.lock || true
@@ -19,38 +20,28 @@ script:
 matrix:
   fast_finish: true
   include:
-  - rvm: 1.9.3
-    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" CHECK=test
-  - rvm: 1.9.3
-    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" FUTURE_PARSER="yes" CHECK=test
-  - rvm: 2.1.9
-    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" CHECK=test
-  - rvm: 2.1.9
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
   - rvm: 2.2.6
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.3.3
-    env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
-  - rvm: 2.3.3
-    env: PUPPET_VERSION="~> 4.0" CHECK=rubocop
   - rvm: 2.3.3
     env: PUPPET_VERSION="~> 4.0" CHECK=test
   - rvm: 2.4.0
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: default
-    env: BEAKER_set="debian-7-x86_64-docker" PUPPET_AIO="yes"
+  - rvm: 2.4.0
+    env: PUPPET_VERSION="~> 4.0" CHECK=rubocop
+  - rvm: 2.4.0
+    env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
+  - rvm: 2.4.0
+    env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
     services: docker
     sudo: required
-  - rvm: default
-    env: BEAKER_set="centos-6-x86_64-docker" PUPPET_AIO="yes"
+  - rvm: 2.4.0
+    env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
     services: docker
     sudo: required
-  - rvm: default
-    env: BEAKER_set="centos-7-x86_64-docker" PUPPET_AIO="yes"
+  - rvm: 2.4.0
+    env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
     services: docker
     sudo: required
-  allow_failures:
-    - rvm: 2.4.0
 branches:
   only:
   - master
