@@ -26,7 +26,7 @@ describe provider_class, skip: true do
       end
     end
 
-    it 'creates an array entry' do
+    it 'creates an array entry' do # rubocop:disable RSpec/MultipleExpectations
       apply!(Puppet::Type.type(:puppetserver_config).new(
                name: 'foo',
                key: 'foo',
@@ -63,7 +63,7 @@ describe provider_class, skip: true do
         end
       end
 
-      it 'creates an array entry' do
+      it 'creates an array entry' do # rubocop:disable RSpec/MultipleExpectations
         apply!(Puppet::Type.type(:puppetserver_config).new(
                  name: 'foo',
                  key: 'foo',
@@ -99,7 +99,7 @@ describe provider_class, skip: true do
     end
 
     describe 'when updating settings' do
-      it 'replaces a setting' do
+      it 'replaces a setting' do # rubocop:disable RSpec/MultipleExpectations
         apply!(Puppet::Type.type(:puppetserver_config).new(
                  name: 'client-whitelist',
                  key: 'client-whitelist',
@@ -121,7 +121,7 @@ describe provider_class, skip: true do
     let(:tmptarget) { aug_fixture('broken') }
     let(:target) { tmptarget.path }
 
-    it 'fails to load' do
+    it 'fails to load' do # rubocop:disable RSpec/MultipleExpectations
       txn = apply(Puppet::Type.type(:puppetserver_config).new(
                     name: 'foo',
                     value: 'yes',
@@ -130,8 +130,8 @@ describe provider_class, skip: true do
       ))
 
       expect(txn.any_failed?).not_to eq(nil)
-      expect(@logs.first.level).to eq(:err)
-      expect(@logs.first.message.include?(target)).to eq(true)
+      expect(@logs.first.level).to eq(:err) # rubocop:disable RSpec/InstanceVariable
+      expect(@logs.first.message.include?(target)).to eq(true) # rubocop:disable RSpec/InstanceVariable
     end
   end
 end
