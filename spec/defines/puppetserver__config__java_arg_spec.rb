@@ -13,7 +13,7 @@ describe 'puppetserver::config::java_arg' do
 
       context 'without param' do
         it 'fails' do
-          expect { is_expected.to compile }.to raise_error(/Puppetserver::Config::Java_arg\[foo\]/)
+          expect { is_expected.to compile }.to raise_error(%r{Puppetserver::Config::Java_arg\[foo\]})
         end
       end
 
