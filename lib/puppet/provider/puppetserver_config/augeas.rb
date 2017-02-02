@@ -1,11 +1,11 @@
-Puppet::Type.type(:puppetserver_config).provide(:augeas, :parent => Puppet::Type.type(:augeasprovider).provider(:default)) do
-  desc "Uses the Augeas API to update a puppetserver native parameter"
+Puppet::Type.type(:puppetserver_config).provide(:augeas, parent: Puppet::Type.type(:augeasprovider).provider(:default)) do
+  desc 'Uses the Augeas API to update a puppetserver native parameter'
 
   default_file { '/etc/puppetserver/conf.d/puppetserver.conf' }
 
   lens { 'Trapperkeeper.lns' }
 
-  confine :feature => :augeas
+  confine feature: :augeas
 
   resource_path do |resource|
     path = '$target'
@@ -23,7 +23,7 @@ Puppet::Type.type(:puppetserver_config).provide(:augeas, :parent => Puppet::Type
     end
   end
 
-  def set_paths(aug)
+  def set_paths(aug) # rubocop:disable Style/AccessorMethodName
     path = '$target'
     resource[:path].split('/').map do |h|
       path << "/@hash[.='#{h}']"
@@ -37,7 +37,7 @@ Puppet::Type.type(:puppetserver_config).provide(:augeas, :parent => Puppet::Type
       # Replace all values
       aug.rm('$resource/*')
       Array(vals).each_with_index do |v, i|
-        aug.set("$resource/#{i+1}", v)
+        aug.set("$resource/#{i + 1}", v)
       end
     else
       aug.set('$resource/@value', vals)

@@ -10,24 +10,24 @@
     - bundle exec rake lint
     - AUGEAS_LENS_LIB=files/lenses bundle exec rake spec SPEC_OPTS='--format documentation'
     - bundle exec rake metadata
-  forge_password: "QcG6iRpDC8ojkaCsrO3HVyBCspKcc2lkxRlBLG5X61Gp8dytr36tzndldMsxGW4CgTnCWNuRlJhfKwvH8ObSR8hDZyQkNwzoOSRMIUM9SGvHKqCScSMW1gjdNvh/0oMt/WbZEcyN7/XIEmQqtMmXShBaQ0yWYdp3TvgfNSJ/NdM="
+  secure: "etCGQI0hjcKLcm7WcdUONSCh3TWM+SSoqCVMdMsulcVKeAR2CWPSi2nga7TKsDAlKQ2XxXPVYcBpFf+p0gxbAvV4jCFNU96KTtHAMkJbIASYhtHr9Ixk/ToG6hhdywvjAZRS7xvAOwUgWEoA6gA0jJy5nNu+hUZRpvdPreM/DgE="
   extras:
-    - rvm: default
+    - rvm: 2.4.0
       sudo: required
       services: docker
-      env: BEAKER_set="debian-7-x86_64-docker" PUPPET_AIO="yes"
+      env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
-    - rvm: default
+    - rvm: 2.4.0
       sudo: required
       services: docker
-      env: BEAKER_set="centos-6-x86_64-docker" PUPPET_AIO="yes"
+      env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
-    - rvm: default
+    - rvm: 2.4.0
       sudo: required
       services: docker
-      env: BEAKER_set="centos-7-x86_64-docker" PUPPET_AIO="yes"
+      env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
 spec/spec_helper.rb:
