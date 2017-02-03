@@ -4,7 +4,8 @@ describe 'puppetserver' do
   context 'with defaults' do
     it 'idempotently runs' do
       pp = <<-EOS
-        class { 'puppetserver': }
+        include ::puppetserver::hiera::eyaml
+        include ::puppetserver
       EOS
 
       apply_manifest(pp, catch_failures: true)
