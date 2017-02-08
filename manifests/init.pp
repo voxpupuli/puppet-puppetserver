@@ -1,9 +1,11 @@
-class puppetserver(
-  $version = 'present',
-  $enable  = true,
-  $start   = true,
-  $package = 'puppetserver',
-  $config = {},
+class puppetserver (
+  $version        = 'present',
+  $enable         = true,
+  $start          = true,
+  $package        = 'puppetserver',
+  $service        = 'puppetserver',
+  $manage_service = true,
+  $config         = {},
 ) {
   anchor { 'puppetserver::begin': } ->
   class { '::puppetserver::install': } ->
