@@ -15,6 +15,11 @@ class puppetserver::config {
       type    => 'java_arg',
       ;
 
+    'java_args/tmpdir':
+      setting => '-Djava.io.tmpdir=',
+      type    => 'java_arg',
+      ;
+
     'webserver/port':
       setting => 'webserver.conf/webserver/port',
       type    => 'puppetserver',

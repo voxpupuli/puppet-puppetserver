@@ -30,6 +30,7 @@ class { 'puppetserver':
       'xms'         => '4g',
       'xmx'         => '6g',
       'maxpermsize' => '512m',
+      'tmpdir'      => '/tmp',
     },
 
     'webserver'  => {
@@ -80,6 +81,13 @@ puppetserver::config::java_arg { '-Xms':
   value   => '4g',
 }
 ```
+
+Special note on the tmpdir java_arg. The puppet-server installation requires a tmp dir with a mode of 1777 and a tmp folder which is NOT mounted with the noexec parameter.
+Otherwise the installation will fail with this strange error message:
+```
+Caused by: org.jruby.embed.EvalFailedException: (Error) Cannot determine basic system flavour
+```
+For more details, see [here](https://github.com/puppetlabs/puppetserver/blob/master/documentation/known_issues.markdown).
 
 ### puppetserver::config::puppetserver
 
