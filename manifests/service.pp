@@ -1,10 +1,13 @@
 class puppetserver::service {
-  $ensure = $::puppetserver::start ? {
-    true    => running,
-    default => stopped,
-  }
-  service { 'puppetserver':
-    ensure => $ensure,
-    enable => $::puppetserver::enable,
+  if $::puppetserver::manage_service {
+    $ensure = $::puppetserver::start ? {
+      true    => running,
+      default => stopped,
+    }
+
+    service { $::puppetserver::service:
+      ensure => $ensure,
+      enable => $::puppetserver::enable,
+    }
   }
 }
