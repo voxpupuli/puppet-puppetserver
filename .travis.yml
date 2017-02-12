@@ -4,6 +4,10 @@ dist: trusty
 language: ruby
 cache: bundler
 bundler_args: --without system_tests development
+addons:
+  apt:
+    packages:
+      - libaugeas-dev
 before_install:
   - bundle -v
   - rm Gemfile.lock || true

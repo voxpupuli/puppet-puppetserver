@@ -3,7 +3,11 @@
   acceptance:
     - '*'
   use_containers: false
-  install: 
+  addons:
+    apt:
+      packages:
+        - libaugeas-dev
+  install:
     - "travis_retry ./.travis.sh"
   script:
     - bundle exec rake validate
@@ -30,5 +34,10 @@
       env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
+Gemfile:
+  optional:
+    ':test':
+      - gem: ruby-augeas
+        require: false
 spec/spec_helper.rb:
   augeasproviders: true
