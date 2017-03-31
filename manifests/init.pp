@@ -7,9 +7,9 @@ class puppetserver (
   $manage_service = true,
   $config         = {},
 ) {
-  anchor { 'puppetserver::begin': } ->
-  class { '::puppetserver::install': } ->
-  class { '::puppetserver::config': } ~>
-  class { '::puppetserver::service': } ->
-  anchor { 'puppetserver::end': }
+  anchor { 'puppetserver::begin': }
+  -> class { '::puppetserver::install': }
+  -> class { '::puppetserver::config': }
+  ~> class { '::puppetserver::service': }
+  -> anchor { 'puppetserver::end': }
 }

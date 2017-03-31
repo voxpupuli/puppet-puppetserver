@@ -13,8 +13,8 @@ class puppetserver::hiera::eyaml (
     }
 
     'gpg': {
-      package { 'ruby_gpg': } ->
-      package { 'hiera-eyaml-gpg': }
+      package { 'ruby_gpg': }
+      -> package { 'hiera-eyaml-gpg': }
     }
 
     default: {

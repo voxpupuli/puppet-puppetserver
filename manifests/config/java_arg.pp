@@ -3,9 +3,9 @@ define puppetserver::config::java_arg (
   $ensure = 'present',
   $setting_type = undef, # For helper
 ) {
-  Class['puppetserver::install'] ->
-  Puppetserver::Config::Java_arg[$title] ~>
-  Class['puppetserver::service']
+  Class['puppetserver::install']
+  -> Puppetserver::Config::Java_arg[$title]
+  ~> Class['puppetserver::service']
 
   case $ensure {
     'present': {
