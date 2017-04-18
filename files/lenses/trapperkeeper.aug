@@ -31,7 +31,7 @@ let empty = Util.empty
 let comment = Util.comment
 
 (* View: sep *)
-let sep = del /[ \t]*[:=]/ ":"
+let sep = del /[ \t]*[\/:=]/ ":"
 
 (* View: sep_with_spc *)
 let sep_with_spc = sep . Sep.opt_space
@@ -75,7 +75,7 @@ let block_newlines (entry:lens) (comment:lens) =
 let opt_dquot (lns:lens) = del /"?/ "" . lns . del /"?/ ""
 
 (* View: simple *)
-let simple = [ Util.indent . label "@simple" . opt_dquot (store /[A-Za-z0-9_.\/-]+/) . sep_with_spc
+let simple = [ Util.indent . label "@simple" . opt_dquot (store /[A-Za-z0-9_.-]+/) . sep_with_spc
              . [ label "@value" . opt_dquot (store /[^,"\[ \t\n]+/) ]
              . Util.eol ]
 
@@ -103,17 +103,22 @@ let hash (lns:lens) = [ Util.indent . label "@hash" . store Rx.word . sep
  *************************************************************************)
 
 (* Just for typechecking *)
-let entry_no_rec = hash (simple|array)
+let entry_hash_no_rec = hash (simple|array)
 
-(* View: entry *)
-let rec entry = hash (entry|simple|array)
+let entry_simple_no_rec = simple
+
+(* View: entry_hash *)
+let rec entry_hash = hash (entry_hash|simple|array)
+
+(* View: entry_simple *)
+let rec entry_simple = simple
 
 (************************************************************************
  * Group:                LENS AND FILTER
  *************************************************************************)
 
 (* View: lns *)
-let lns = (empty|comment)* . (entry . (empty|comment)*)*
+let lns = (empty|comment)* . ((entry_hash|entry_simple) . (empty|comment)*)*
 
 (* Variable: filter *)
 let filter = incl "/etc/puppetserver/conf.d/*"
