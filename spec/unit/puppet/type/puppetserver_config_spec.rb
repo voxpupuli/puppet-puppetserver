@@ -1,5 +1,3 @@
-#!/usr/bin/env rspec
-
 require 'spec_helper'
 
 puppetserver_config_type = Puppet::Type.type(:puppetserver_config)
@@ -17,8 +15,8 @@ describe puppetserver_config_type do
     end
 
     it 'accepts a value array parameter' do
-      resource = puppetserver_config_type.new name: 'foo', value: %w(foo bar)
-      expect(resource[:value]).to eq(%w(foo bar))
+      resource = puppetserver_config_type.new name: 'foo', value: %w[foo bar]
+      expect(resource[:value]).to eq(%w[foo bar])
     end
 
     it 'accepts a path parameter' do

@@ -36,6 +36,7 @@ describe 'puppetserver::repository' do
               yum_products_baseurl: 'http://yum.internal/products/'
             }
           end
+
           it { is_expected.to contain_yumrepo('puppetlabs-deps').with('proxy' => 'http://proxy:8080/') }
           it { is_expected.to contain_yumrepo('puppetlabs-deps').with('proxy_username' => 'user') }
           it { is_expected.to contain_yumrepo('puppetlabs-deps').with('proxy_password' => 'password') }

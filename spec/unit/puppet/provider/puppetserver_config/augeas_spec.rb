@@ -1,5 +1,3 @@
-#!/usr/bin/env rspec
-
 require 'spec_helper'
 
 provider_class = Puppet::Type.type(:puppetserver_config).provider(:augeas)
@@ -31,7 +29,7 @@ describe provider_class, skip: true do
                name: 'foo',
                key: 'foo',
                path: 'bar',
-               value: %w(42 24),
+               value: %w[42 24],
                target: target,
                provider: 'augeas'
       ))
@@ -68,7 +66,7 @@ describe provider_class, skip: true do
                  name: 'foo',
                  key: 'foo',
                  path: 'bar',
-                 value: %w(42 24),
+                 value: %w[42 24],
                  target: target,
                  provider: 'augeas'
         ))
@@ -104,7 +102,7 @@ describe provider_class, skip: true do
                  name: 'client-whitelist',
                  key: 'client-whitelist',
                  path: 'puppet-admin',
-                 value: %w(foo bar),
+                 value: %w[foo bar],
                  target: target,
                  provider: 'augeas'
         ))
