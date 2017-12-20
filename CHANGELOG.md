@@ -1,134 +1,173 @@
-## 2016-03-15 - Release 2.1.0
+# Changelog
 
-- Various test fixes
-- Add suport for yum proxy (GH #22)
+All notable changes to this project will be documented in this file.
+Each new release typically also includes the latest modulesync defaults.
+These should not affect the functionality of the module.
 
-## 2015-09-21 - Release 2.0.1
+## [v3.0.0](https://github.com/voxpupuli/puppet-puppetserver/tree/v3.0.0) (2017-12-20)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/2.1.0...v3.0.0)
 
-- Cleanup unused code in Trapperkeeper lens
-- Fix puppetlabs-apt dependency
+**Implemented enhancements:**
 
-## 2015-09-14 - Release 2.0.0
+- Use stahnma/puppetlabs\_yum and ploperations/puppetlabs\_apt to handle Puppet repositories [\#37](https://github.com/voxpupuli/puppet-puppetserver/issues/37)
+- Depend on puppetlabs/puppetserver\_gem instead of including it [\#28](https://github.com/voxpupuli/puppet-puppetserver/issues/28)
+- puppetserver::repository should handle the PC1 repo ? [\#18](https://github.com/voxpupuli/puppet-puppetserver/issues/18)
+- Use puppetlabs/puppetserver\_gem \(BREAKING\) [\#42](https://github.com/voxpupuli/puppet-puppetserver/pull/42) ([vinzent](https://github.com/vinzent))
+- Added tmpdir parameter to java args. Is needed for CIS hardened servers [\#38](https://github.com/voxpupuli/puppet-puppetserver/pull/38) ([Fabian1976](https://github.com/Fabian1976))
 
-- Add puppetserver_config type & provider
-  and use it in manifests
-- Depend on augeasproviders_core
-- Add acceptance tests on Travis CI (GH #13)
-- Rework the Trapperkeeper Augeas lens
-  to support more syntax (GH # (breaking change)
-- Add linting plugins
-- Add support for Puppetserver 2 paths (GH #8)
+**Fixed bugs:**
 
-## 2015-07-09 - Release 1.0.0
+- Travis shows acceptance tests green but are not run [\#39](https://github.com/voxpupuli/puppet-puppetserver/issues/39)
 
-Add puppetserver2 support
+**Merged pull requests:**
 
-## 2015-06-26 - Release 0.11.1
+- bump dep on apt to '\< 5.0.0'; use long gpg id [\#48](https://github.com/voxpupuli/puppet-puppetserver/pull/48) ([costela](https://github.com/costela))
+- Set min version\_requirement for Puppet + deps [\#36](https://github.com/voxpupuli/puppet-puppetserver/pull/36) ([juniorsysadmin](https://github.com/juniorsysadmin))
+- Revert "modulesync 0.12.5" [\#31](https://github.com/voxpupuli/puppet-puppetserver/pull/31) ([bbriggs](https://github.com/bbriggs))
+- modulesync 0.12.5 [\#30](https://github.com/voxpupuli/puppet-puppetserver/pull/30) ([bastelfreak](https://github.com/bastelfreak))
+- Added manage\_service option [\#27](https://github.com/voxpupuli/puppet-puppetserver/pull/27) ([mvisonneau](https://github.com/mvisonneau))
+- Remove hardcoded version for hiera-eyaml-gpg [\#26](https://github.com/voxpupuli/puppet-puppetserver/pull/26) ([willaerk](https://github.com/willaerk))
 
-Fix strict_variables activation with rspec-puppet 2.2
+## [2.1.0](https://github.com/voxpupuli/puppet-puppetserver/tree/2.1.0) (2016-03-15)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/2.0.1...2.1.0)
 
-## 2015-06-25 - Release 0.11.0
+**Closed issues:**
 
-Add puppetserver/admin-api-cert config parameter
+- auth.conf not parsable by the trapperkeeper lens  [\#23](https://github.com/voxpupuli/puppet-puppetserver/issues/23)
 
-## 2015-06-23 - Release 0.10.0
+**Merged pull requests:**
 
-Support custom package name
+- added support for a yum proxy and setting the baseurl for yum repositories [\#22](https://github.com/voxpupuli/puppet-puppetserver/pull/22) ([tosmi](https://github.com/tosmi))
 
-## 2015-05-28 - Release 0.9.7
+## [2.0.1](https://github.com/voxpupuli/puppet-puppetserver/tree/2.0.1) (2015-09-21)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/2.0.0...2.0.1)
 
-Add beaker_spec_helper to Gemfile
+**Fixed bugs:**
 
-## 2015-05-26 - Release 0.9.6
+- Fix creation of new entries [\#14](https://github.com/voxpupuli/puppet-puppetserver/issues/14)
+- trapperkeeper augeas lens fails for ruby-load-path [\#11](https://github.com/voxpupuli/puppet-puppetserver/issues/11)
+- undocumented dependency: camptocamp/agueas [\#6](https://github.com/voxpupuli/puppet-puppetserver/issues/6)
 
-Use random application order in nodeset
+**Merged pull requests:**
 
-## 2015-05-26 - Release 0.9.5
+- Fix puppetlabs-apt version dependency [\#17](https://github.com/voxpupuli/puppet-puppetserver/pull/17) ([roman-mueller](https://github.com/roman-mueller))
 
-add utopic & vivid nodesets
+## [2.0.0](https://github.com/voxpupuli/puppet-puppetserver/tree/2.0.0) (2015-09-14)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/1.0.0...2.0.0)
 
-## 2015-05-25 - Release 0.9.4
+**Fixed bugs:**
 
-Don't allow failure on Puppet 4
+- Trapperkeeper lens fails web-routes.conf [\#7](https://github.com/voxpupuli/puppet-puppetserver/issues/7)
 
-## 2015-05-13 - Release 0.9.3
+**Merged pull requests:**
 
-Add puppet-lint-file_source_rights-check gem
+- different path for bootstrap.cfg on puppetserver 2.x [\#12](https://github.com/voxpupuli/puppet-puppetserver/pull/12) ([mmckinst](https://github.com/mmckinst))
 
-## 2015-05-12 - Release 0.9.2
+## [1.0.0](https://github.com/voxpupuli/puppet-puppetserver/tree/1.0.0) (2015-07-09)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.11.1...1.0.0)
 
-Don't pin beaker
+**Closed issues:**
 
-## 2015-04-27 - Release 0.9.1
+- Add support for puppet server 2.0 [\#9](https://github.com/voxpupuli/puppet-puppetserver/issues/9)
 
-Add nodeset ubuntu-12.04-x86_64-openstack
+**Merged pull requests:**
 
-## 2015-04-03 - Release 0.9.0
+- Initial support for puppetserver 2.0.0 paths [\#8](https://github.com/voxpupuli/puppet-puppetserver/pull/8) ([roman-mueller](https://github.com/roman-mueller))
 
-Remove acceptance tests from travis (puppetserver requires too much memory to
-start)
-Use lens_content and test_content instead of lens_source and test_source for
-augeas::lens resources
-Don't manage /var/lib/puppet/ssl (fixed upstream)
-Remove RedHat 5 support (it may still work though)
-Confine rspec pinning to ruby 1.8
-Simplify spec/spec_helper_acceptance.rb
+## [0.11.1](https://github.com/voxpupuli/puppet-puppetserver/tree/0.11.1) (2015-06-26)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.11.0...0.11.1)
 
-## 2015-03-24 - Release 0.8.0
+## [0.11.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.11.0) (2015-06-25)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.10.0...0.11.0)
 
-Add puppetserver::config::boostrap to configure bootstrap.cfg
-Fix /var/lib/puppet/ssl ownership
+## [0.10.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.10.0) (2015-06-23)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.7...0.10.0)
 
-## 2015-03-09 - Release 0.7.0
+**Merged pull requests:**
 
-Add a puppetserver::hiera::eyaml class
-Various specs improvements
+- Support custom package name [\#10](https://github.com/voxpupuli/puppet-puppetserver/pull/10) ([tdevelioglu](https://github.com/tdevelioglu))
 
-## 2015-02-18 - Release 0.6.1
+## [0.9.7](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.7) (2015-05-28)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.6...0.9.7)
 
-Fix specs for minimal memory size
+## [0.9.6](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.6) (2015-05-26)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.5...0.9.6)
 
-## 2015-02-18 - Release 0.6.0
+## [0.9.5](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.5) (2015-05-26)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.4...0.9.5)
 
-Do not check for minimal memory size
-Fix puppet lint configuration in specs
+## [0.9.4](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.4) (2015-05-25)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.3...0.9.4)
 
-## 2015-02-17 - Release 0.5.1
+## [0.9.3](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.3) (2015-05-13)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.2...0.9.3)
 
-Properly confine the puppetserver_gem provider
+## [0.9.2](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.2) (2015-05-12)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.1...0.9.2)
 
-## 2015-02-16 - Release 0.5.0
+## [0.9.1](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.1) (2015-04-27)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.9.0...0.9.1)
 
-Various rspec improvements
-Use rspec-puppet-facts in specs
-Various linting
-Add anchors in puppetserver class
-Add puppetserver_gem package provider
+## [0.9.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.9.0) (2015-04-03)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.8.0...0.9.0)
 
-## 2015-01-07 - Release 0.4.3
+**Closed issues:**
 
-Fix unquoted strings in cases
+- how to configure puppet.conf [\#4](https://github.com/voxpupuli/puppet-puppetserver/issues/4)
 
-## 2015-01-06 - Release 0.4.2
+## [0.8.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.8.0) (2015-03-24)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.7.0...0.8.0)
 
-Fix .travis.yml
+**Merged pull requests:**
 
-## 2014-12-18 - Release 0.4.1
+- Fix /var/lib/puppet/ssl ownership on Debian7 [\#5](https://github.com/voxpupuli/puppet-puppetserver/pull/5) ([mcanevet](https://github.com/mcanevet))
 
-Various improvements in unit tests
+## [0.7.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.7.0) (2015-03-09)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.6.1...0.7.0)
 
-## 2014-11-12 Release 0.4.0
+## [0.6.1](https://github.com/voxpupuli/puppet-puppetserver/tree/0.6.1) (2015-02-18)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.6.0...0.6.1)
 
-Drop support for Puppet 2.7 in tests
-Use Travis DPL for releases
+## [0.6.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.6.0) (2015-02-18)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.5.1...0.6.0)
 
-## 2014-10-28 Release 0.3.0
+## [0.5.1](https://github.com/voxpupuli/puppet-puppetserver/tree/0.5.1) (2015-02-17)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.5.0...0.5.1)
 
-Fix missing slash in puppetserver::conf::puppetserver
-Support optional double quotes in values
+## [0.5.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.5.0) (2015-02-16)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.4.3...0.5.0)
 
-## 2014-10-28 Release 0.2
+## [0.4.3](https://github.com/voxpupuli/puppet-puppetserver/tree/0.4.3) (2015-01-07)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.4.2...0.4.3)
 
-Add a config parameter in the puppetserver class
-Add configuration defined types
-Create nodesets with memsize set to 3072
+## [0.4.2](https://github.com/voxpupuli/puppet-puppetserver/tree/0.4.2) (2015-01-06)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.4.1...0.4.2)
+
+## [0.4.1](https://github.com/voxpupuli/puppet-puppetserver/tree/0.4.1) (2014-12-18)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.4.0...0.4.1)
+
+**Closed issues:**
+
+- tarball on puppet forge is broken [\#3](https://github.com/voxpupuli/puppet-puppetserver/issues/3)
+
+## [0.4.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.4.0) (2014-11-12)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.3.0...0.4.0)
+
+## [0.3.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.3.0) (2014-10-28)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.2.0...0.3.0)
+
+## [0.2.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.2.0) (2014-10-28)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.1.1...0.2.0)
+
+## [0.1.1](https://github.com/voxpupuli/puppet-puppetserver/tree/0.1.1) (2014-10-27)
+[Full Changelog](https://github.com/voxpupuli/puppet-puppetserver/compare/0.1.0...0.1.1)
+
+## [0.1.0](https://github.com/voxpupuli/puppet-puppetserver/tree/0.1.0) (2014-10-27)
+**Merged pull requests:**
+
+- Manage configuration options with a hash [\#2](https://github.com/voxpupuli/puppet-puppetserver/pull/2) ([raphink](https://github.com/raphink))
+- Manage JAVA\_ARGS parameters individually [\#1](https://github.com/voxpupuli/puppet-puppetserver/pull/1) ([raphink](https://github.com/raphink))
+
+
+
+\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
