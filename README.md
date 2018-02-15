@@ -101,7 +101,7 @@ puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
 }
 ```
 
-### puppetserver::config::boostrap
+### puppetserver::config::bootstrap
 
 A Puppetserver bootstrap.cfg entry.
 
