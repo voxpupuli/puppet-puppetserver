@@ -35,5 +35,10 @@ class puppetserver::config {
       setting_type => 'array',
       type         => 'puppetserver',
       ;
+
+    'puppetserver/max-active-instances':
+      setting => 'puppetserver.conf/jruby-puppet/max-active-instances',
+      type    => 'puppetserver',
+      ;
   }
 }
