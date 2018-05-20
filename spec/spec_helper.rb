@@ -2,6 +2,10 @@ require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-facts'
 include RspecPuppetFacts
 
+# This file is managed via modulesync
+# https://github.com/voxpupuli/modulesync
+# https://github.com/voxpupuli/modulesync_config
+
 # Setup augeasproviders
 require 'pathname'
 dir = Pathname.new(__FILE__).parent
