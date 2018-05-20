@@ -32,16 +32,10 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 3.8.7 <5.0.0"
+      "version_requirement": ">= 4.10.0 < 6.0.0"
     }
   ],
   "operatingsystem_support": [
-    {
-      "operatingsystem": "Debian",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
