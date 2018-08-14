@@ -31,19 +31,19 @@ matrix:
     env: PUPPET_VERSION="~> 5.0" CHECK=build DEPLOY_TO_FORGE=yes
   - rvm: 2.4.0
     bundler_args: 
-    env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
+    env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
     script: bundle exec rspec spec/acceptance/*_spec.rb
     services: docker
     sudo: required
   - rvm: 2.4.0
     bundler_args: 
-    env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
+    env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
     script: bundle exec rspec spec/acceptance/*_spec.rb
     services: docker
     sudo: required
   - rvm: 2.4.0
     bundler_args: 
-    env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
+    env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
     script: bundle exec rspec spec/acceptance/*_spec.rb
     services: docker
     sudo: required
