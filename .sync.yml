@@ -19,19 +19,19 @@
     - rvm: 2.4.0
       sudo: required
       services: docker
-      env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
+      env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
     - rvm: 2.4.0
       sudo: required
       services: docker
-      env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
+      env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
     - rvm: 2.4.0
       sudo: required
       services: docker
-      env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker"
+      env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
 Gemfile:
