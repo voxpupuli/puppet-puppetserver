@@ -1,46 +1,71 @@
 ---
+sudo: false
+dist: trusty
 language: ruby
-bundler_args: --without system_tests
-install: ["travis_retry ./.travis.sh"]
-script: ["bundle exec rake validate", "bundle exec rake lint", "AUGEAS_LENS_LIB=files/lenses bundle exec rake spec SPEC_OPTS='--format documentation'", "bundle exec rake metadata"]
+cache: bundler
+addons:
+  apt:
+    packages:
+      - libaugeas-dev
+before_install:
+  - rm -f Gemfile.lock
+script:
+  - 'bundle exec rake $CHECK'
 matrix:
   fast_finish: true
   include:
   - rvm: 2.1.9
-    env: PUPPET_GEM_VERSION="~> 4.0"
-  - rvm: 2.4.1
-    env: PUPPET_GEM_VERSION="~> 5.0"
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 4.0" CHECK=test PARALLEL_TEST_PROCESSORS=12
+  - rvm: 2.4.4
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 5.0" CHECK=test
+  - rvm: 2.5.1
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 5.0" CHECK=test_with_coveralls
+  - rvm: 2.4.4
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 5.0" CHECK=rubocop
+  - rvm: 2.5.1
+    bundler_args: --without system_tests development release
+    env: PUPPET_VERSION="~> 5.0" CHECK=build DEPLOY_TO_FORGE=yes
   - rvm: 2.4.0
-    sudo: required
-    services: docker
+    bundler_args: 
     env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
-    bundler_args: 
     script: bundle exec rspec spec/acceptance/*_spec.rb
-  - rvm: 2.4.0
-    sudo: required
     services: docker
+    sudo: required
+  - rvm: 2.4.0
+    bundler_args: 
     env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
-    bundler_args: 
     script: bundle exec rspec spec/acceptance/*_spec.rb
+    services: docker
+    sudo: required
   - rvm: 2.4.0
-    sudo: required
-    services: docker
-    env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
     bundler_args: 
+    env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
     script: bundle exec rspec spec/acceptance/*_spec.rb
-  - rvm: default
-    sudo: required
-    dist: trusty
     services: docker
-    env: BEAKER_set="centos-6"
-    bundler_args:
-    script: sudo service docker restart ; sleep 10 && bundle exec rspec spec/acceptance/*_spec.rb
-  - rvm: default
     sudo: required
-    dist: trusty
-    services: docker
-    env: BEAKER_set="centos-7"
-    bundler_args:
-    script: sudo service docker restart ; sleep 10 && bundle exec rspec spec/acceptance/*_spec.rb
+branches:
+  only:
+  - master
+  - /^v\d/
 notifications:
   email: false
+  irc:
+    on_success: always
+    on_failure: always
+    channels:
+      - "chat.freenode.org#voxpupuli-notifications"
+deploy:
+  provider: puppetforge
+  user: puppet
+  password:
+    secure: "etCGQI0hjcKLcm7WcdUONSCh3TWM+SSoqCVMdMsulcVKeAR2CWPSi2nga7TKsDAlKQ2XxXPVYcBpFf+p0gxbAvV4jCFNU96KTtHAMkJbIASYhtHr9Ixk/ToG6hhdywvjAZRS7xvAOwUgWEoA6gA0jJy5nNu+hUZRpvdPreM/DgE="
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true
+    # Only publish the build marked with "DEPLOY_TO_FORGE"
+    condition: "$DEPLOY_TO_FORGE = yes"
