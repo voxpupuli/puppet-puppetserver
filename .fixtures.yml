@@ -5,5 +5,3 @@ fixtures:
     augeasproviders_core: 'git://github.com/hercules-team/augeasproviders_core.git'
     stdlib: 'git://github.com/puppetlabs/puppetlabs-stdlib.git'
     puppetserver_gem: 'git://github.com/puppetlabs/puppetlabs-puppetserver_gem.git'
-  symlinks:
-    puppetserver: "#{source_dir}"

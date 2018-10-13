@@ -16,19 +16,19 @@
     - bundle exec rake metadata
   secure: "etCGQI0hjcKLcm7WcdUONSCh3TWM+SSoqCVMdMsulcVKeAR2CWPSi2nga7TKsDAlKQ2XxXPVYcBpFf+p0gxbAvV4jCFNU96KTtHAMkJbIASYhtHr9Ixk/ToG6hhdywvjAZRS7xvAOwUgWEoA6gA0jJy5nNu+hUZRpvdPreM/DgE="
   extras:
-    - rvm: 2.4.0
+    - rvm: 2.4.4
       sudo: required
       services: docker
       env: BEAKER_set="docker/debian-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
-    - rvm: 2.4.0
+    - rvm: 2.4.4
       sudo: required
       services: docker
       env: BEAKER_set="docker/centos-6" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
       bundler_args:
       script: bundle exec rspec spec/acceptance/*_spec.rb
-    - rvm: 2.4.0
+    - rvm: 2.4.4
       sudo: required
       services: docker
       env: BEAKER_set="docker/centos-7" PUPPET_INSTALL_TYPE="agent" CHECK="beaker" BEAKER_IS_PE=no
