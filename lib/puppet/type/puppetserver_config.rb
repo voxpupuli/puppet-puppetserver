@@ -34,21 +34,20 @@ Puppet::Type.newtype(:puppetserver_config) do
   end
 
   def self.title_patterns
-    identity = ->(x) { x }
     [
       [
         %r{^((\/.+\.conf)\/(.+)\/([^\/]+))$},
         [
-          [:name, identity],
-          [:target, identity],
-          [:path, identity],
-          [:key, identity]
+          [:name],
+          [:target],
+          [:path],
+          [:key]
         ]
       ],
       [
         %r{(.*)},
         [
-          [:name, identity]
+          [:name]
         ]
       ]
     ]
