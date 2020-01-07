@@ -20,6 +20,11 @@ class puppetserver::config {
       type    => 'java_arg',
       ;
 
+    'java_args/reservedcodecachesize':
+      setting => '-XX:ReservedCodeCacheSize=',
+      type    => 'java_arg',
+      ;
+
     'webserver/port':
       setting => 'webserver.conf/webserver/port',
       type    => 'puppetserver',
