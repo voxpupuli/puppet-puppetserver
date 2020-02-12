@@ -1,7 +1,0 @@
-fixtures:
-  repositories:
-    apt: 'git://github.com/puppetlabs/puppetlabs-apt.git'
-    augeas: 'git://github.com/camptocamp/puppet-augeas.git'
-    augeasproviders_core: 'git://github.com/hercules-team/augeasproviders_core.git'
-    stdlib: 'git://github.com/puppetlabs/puppetlabs-stdlib.git'
-    puppetserver_gem: 'git://github.com/puppetlabs/puppetlabs-puppetserver_gem.git'
