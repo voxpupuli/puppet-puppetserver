@@ -1,12 +1,12 @@
 {
-  "name": "puppet-puppetserver",
-  "version": "3.0.2-rc0",
+  "name": "cmc-puppetserver",
+  "version": "3.0.2",
   "author": "Vox Pupuli",
   "summary": "Puppet module for puppetserver",
   "license": "Apache-2.0",
-  "source": "https://github.com/voxpupuli/puppet-puppetserver",
-  "project_page": "https://github.com/voxpupuli/puppet-puppetserver",
-  "issues_url": "https://github.com/voxpupuli/puppet-puppetserver/issues",
+  "source": "https://github.com/ConclusionMC/puppet-puppetserver",
+  "project_page": "https://github.com/ConclusionMC/puppet-puppetserver",
+  "issues_url": "https://github.com/ConclusionMC/puppet-puppetserver/issues",
   "dependencies": [
     {
       "name": "herculesteam/augeasproviders_core",
@@ -27,12 +27,6 @@
     {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">= 4.13.1 < 7.0.0"
-    }
-  ],
-  "requirements": [
-    {
-      "name": "puppet",
-      "version_requirement": ">= 4.10.0 < 6.0.0"
     }
   ],
   "operatingsystem_support": [
