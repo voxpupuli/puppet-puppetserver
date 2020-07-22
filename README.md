@@ -1,3 +1,7 @@
+### This module is deprecated in favor of [theforman/puppet-puppet](https://github.com/theforeman/puppet-puppet) ([#69](https://github.com/voxpupuli/puppet-puppetserver/issues/69))
+
+---
+
 # Puppetserver
 
 [![Puppet Forge Version](http://img.shields.io/puppetforge/v/camptocamp/puppetserver.svg)](https://forge.puppetlabs.com/camptocamp/puppetserver)
