@@ -4,7 +4,8 @@ class puppetserver::repository (
   $yum_proxy_password   = undef,
   $yum_deps_baseurl     = undef,
   $yum_products_baseurl = undef,
-  ){
+  $apt_repo             = 'puppet',
+) {
 
 
   if $yum_deps_baseurl {
@@ -26,7 +27,7 @@ class puppetserver::repository (
       include ::apt
       apt::source { 'puppetlabs':
         location => 'http://apt.puppetlabs.com',
-        repos    => 'main',
+        repos    => $apt_repo,
         key      => {
             id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
             server => 'pool.sks-keyservers.net',
