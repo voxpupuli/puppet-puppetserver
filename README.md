@@ -107,13 +107,24 @@ puppetserver::config::puppetserver { 'webserver.conf/webserver/ssl-port':
 
 ### puppetserver::config::bootstrap
 
-A Puppetserver bootstrap.cfg entry.
+A Puppetserver < 2.5.0 bootstrap.cfg entry.
 
 Example:
 
 ```puppet
 puppetserver::config::bootstrap { 'puppetlabs.services.ca.certificate-authority-disabled-service/certificate-authority-disabled-service':
   ensure => present,
+}
+```
+
+A Puppetserver >= 2.5.0 ca.cfg entry.
+
+Example:
+
+```puppet
+puppetserver::config::bootstrap { 'puppetlabs.services.ca.certificate-authority-disabled-service/certificate-authority-disabled-service':
+  ensure => present,
+  targetfile => '/etc/puppetlabs/puppetserver/services.d/ca.cfg',
 }
 ```
 
